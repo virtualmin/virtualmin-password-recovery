@@ -1,0 +1,6 @@
+---- Changes since 0.1 ----
+First version of this module, for emailing Virtualmin server owners their passwords.
+---- Changes since 1.0 ----
+Added more information to the recovery email, including the IP of the requestor.
+---- Changes since 1.1 ----
+The email sent when recovery is requested can now be customized by the master administrator.

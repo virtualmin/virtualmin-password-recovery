@@ -1,0 +1,30 @@
+index_title=Virtualmin Password Recovery
+index_desc=This page allows you to recover a lost or forgotten Virtualmin server owner password, by having it sent via email to the contact address for your virtual server.
+index_header=Server to recover password for
+index_user=Virtualmin administration login
+index_dom=Virtualmin domain name
+index_or=..or..
+index_email=Email Password
+index_usage=This module is not designed to be used by regular Webmin users. Instead, Virtualmin server owners who have forgotten their passwords can go to $1 without needing to login. On the page that appears, they can enter a username or domain name, and the login details for that virtual server will be emailed to them.
+index_emailheader=Customize Recovery Email
+index_emaildesc=This form can be used to enter a custom email message to be sent for password recovery. The substitions <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> and more can be used in the message.
+index_emaildef=Send default email message
+index_emailset=Send message below ..
+
+email_title=Recovering Password
+email_einput=No administration username or domain name was entered
+email_edom=No virtual server matching your username or domain was found
+email_erate=Your IP address has made too many requests for password recovery within the last 5 minutes.
+email_subject=Virtualmin Password Recovery
+email_msg=You are receiving this email because a request for password recovery for the Virtualmin virtual server $1 from $5, for which you are registered as the administrator. If you did not make this request, please ignore this email.\n\nYour login details for the Virtualmin virtual server $1 have been successfully recovered.\n\nAdministration username: $2\nAdministration password: $3\nAdministration URL:      $4\n\nYou can login immediately using these credentials.\n
+email_eto=Your virtual server has no email address specified!
+email_done=The administration login and password for your virtual server $2 has been sent to $1. If you are still having trouble logging into Virtualmin, please contact the system's master administrator.
+email_failed=Password recovery failed
+
+log_email=Sent password for $1 to $2.
+log_save=Updated recovery email
+
+save_err=Failed to save email message
+save_eanon=Not available to un-authenticated users!
+save_eemail=No message entered
+

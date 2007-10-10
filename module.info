@@ -1,0 +1,4 @@
+desc=Virtualmin Password Recovery
+depends=virtual-server
+category=system
+version=1.2
