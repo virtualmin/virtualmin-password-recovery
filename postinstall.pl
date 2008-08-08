@@ -3,32 +3,16 @@ require 'password-recovery-lib.pl';
 
 sub module_install
 {
+# Grant anonymous access
 &foreign_require("acl", "acl-lib.pl");
-if (defined(&acl::setup_anonymous_access)) {
-	# Use new function
-	&acl::setup_anonymous_access("/$module_name", $module_name);
-	}
-else {
-	# Make this module available anonymously
-	local %miniserv;
-	&get_miniserv_config(\%miniserv);
-	local @anon = split(/\s+/, $miniserv{'anonymous'});
-	local $found = 0;
-	foreach my $a (@anon) {
-		local ($path, $user) = split(/=/, $a);
-		$found++ if ($path eq "/$module_name");
-		}
-	if (!$found) {
-		local %acl;
-		&read_acl(undef, \%acl);
-		local $defuser = $acl{'root'} ? 'root' :
-				 $acl{'admin'} ? 'admin' :
-				 (keys %acl)[0];
-		push(@anon, "/$module_name=$defuser");
-		$miniserv{'anonymous'} = join(" ", @anon);
-		&put_miniserv_config(\%miniserv);
-		&reload_miniserv();
-		}
+&acl::setup_anonymous_access("/$module_name", $module_name);
+
+# Add 'forgot password' link to login form
+my %clang;
+&read_file("$config_directory/custom-lang", \%clang);
+if (!$clang{'session_postfix'}) {
+	$clang{'session_postfix'} = "<center><a href=/$module_name/>$text{'login_forgot'}</a></center>";
+	&write_file("$config_directory/custom-lang", \%clang);
 	}
 }
 
