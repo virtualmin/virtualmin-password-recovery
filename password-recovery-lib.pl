@@ -1,8 +1,12 @@
 # Functions for re-sending a virtualmin domain owner's password
 
-do '../web-lib.pl';
+BEGIN { push(@INC, ".."); };
+eval "use WebminCore;";
+if ($@) {
+	do '../web-lib.pl';
+	do '../ui-lib.pl';
+	}
 &init_config();
-do '../ui-lib.pl';
 &foreign_require("virtual-server", "virtual-server-lib.pl");
 
 $custom_email_file = "$module_config_directory/email";
