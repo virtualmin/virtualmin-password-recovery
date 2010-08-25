@@ -1,9 +1,17 @@
-# Functions for re-sending a virtualmin domain owner's password
+# Functions for re-sending a virtualmin domain owner or cloudmin system
+# owner's password
 
 BEGIN { push(@INC, ".."); };
 eval "use WebminCore;";
 &init_config();
-&foreign_require("virtual-server", "virtual-server-lib.pl");
+if (&foreign_check("virtual-server")) {
+	&foreign_require("virtual-server", "virtual-server-lib.pl");
+	$has_virt = 1;
+	}
+if (&foreign_check("server-manager")) {
+	&foreign_require("server-manager", "server-manager-lib.pl");
+	$has_vm2 = 1;
+	}
 
 $custom_email_file = "$module_config_directory/email";
 

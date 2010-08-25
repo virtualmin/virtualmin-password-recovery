@@ -1,12 +1,13 @@
 #!/usr/local/bin/perl
-# Show a page for Virtualmin domain owners to use to retrieve their lost 
-# passwords via email.
+# Show a page for Virtualmin domain owners or Cloudmin system owners to use to
+# retrieve their lost passwords via email.
 
 require './password-recovery-lib.pl';
+$sfx = $has_virt && $has_vm2 ? "3" : $has_vm2 ? "2" : "";
 
 if (!$ENV{"ANONYMOUS_USER"}) {
 	# Being accessed non-anonymously .. tell the admin
-	&ui_print_header(undef, $text{'index_title'}, "", undef, 0, 1);
+	&ui_print_header(undef, $text{'index_title'.$sfx}, "", undef, 0, 1);
 
 	$url = uc($ENV{'HTTPS'}) eq "ON" ? "https" : "http";
 	$url .= "://$ENV{'SERVER_NAME'}:$ENV{'SERVER_PORT'}";
@@ -31,17 +32,18 @@ if (!$ENV{"ANONYMOUS_USER"}) {
 else {
 	# Show recovery form
 	&popup_header($text{'index_title'});
-	print "<center><h1>$text{'index_title'}</h1></center>\n";
+	print "<center><h1>",$text{'index_title'.$sfx},"</h1></center>\n";
 
-	print $text{'index_desc'},"<p>\n";
+	print "has_virt=$has_virt has_vm2=$has_vm2 sfx=$sfx<p>\n";
+	print $text{'index_desc'.$sfx},"<p>\n";
 
 	print &ui_form_start("email.cgi", "post");
 	print &ui_table_start($text{'index_header'}, undef, 2);
 
-	print &ui_table_row($text{'index_user'},
+	print &ui_table_row($text{'index_user'.$sfx},
 			    &ui_textbox("user", undef, 30));
 	print &ui_table_row(" ", $text{'index_or'});
-	print &ui_table_row($text{'index_dom'},
+	print &ui_table_row($text{'index_dom'.$sfx},
 			    &ui_textbox("dom", undef, 60));
 
 	print &ui_table_end();

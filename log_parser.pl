@@ -8,8 +8,11 @@ do 'password-recovery-lib.pl';
 sub parse_webmin_log
 {
 local ($user, $script, $action, $type, $object, $p) = @_;
-if ($action eq 'email') {
+if ($action eq 'email' && !$p->{'vm2'}) {
 	return &text('log_email', "<tt>$object</tt>", "<tt>$p->{'email'}</tt>");
+	}
+elsif ($action eq 'email' && $p->{'vm2'}) {
+	return &text('log_email2', "<tt>$object</tt>","<tt>$p->{'email'}</tt>");
 	}
 else {
 	return $text{'log_'.$action};
