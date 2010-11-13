@@ -34,7 +34,6 @@ else {
 	&popup_header($text{'index_title'});
 	print "<center><h1>",$text{'index_title'.$sfx},"</h1></center>\n";
 
-	print "has_virt=$has_virt has_vm2=$has_vm2 sfx=$sfx<p>\n";
 	print $text{'index_desc'.$sfx},"<p>\n";
 
 	print &ui_form_start("email.cgi", "post");
