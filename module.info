@@ -3,3 +3,4 @@ depends=1.420
 category=system
 version=1.4
 feedback=jcameron@webmin.com
+desc_nl=Virtualmin Wachtwoord Herstellen
