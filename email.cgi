@@ -98,6 +98,8 @@ if ($msg) {
 	}
 elsif ($dom) {
 	# Use default Virtualmin message
+	$dom->{'pass'} ||
+		&error_and_exit(&text('email_edompass', $dom->{'user'}));
 	$msg = &text('email_msg', $dom->{'dom'},
 				  $dom->{'user'},
 				  $dom->{'pass'},

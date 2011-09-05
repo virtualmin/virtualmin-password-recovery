@@ -36,6 +36,7 @@ email_done=The administration login and password for your virtual server $2 has 
 email_done2=The login and password for your system owner account $2 have been sent to $1. If you are still having trouble logging into Cloudmin, please contact the system's master administrator.
 email_failed=Password recovery failed
 email_eproduct=Neither Virtualmin or Cloudmin is installed, so no accounts for password recovery are available
+email_edompass=Your virtual servrer password for login $1 cannot be recovered as it has not been stored by Virtualmin. Please contact your system administrator to reset the password.
 
 log_email=Sent password for virtual server $1 to $2.
 log_email2=Sent password for system owner $1 to $2.
