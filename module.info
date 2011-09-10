@@ -1,6 +1,6 @@
 desc=Virtualmin Password Recovery
 depends=1.420
 category=system
-version=1.4
+version=1.5
 feedback=jcameron@webmin.com
 desc_nl=Virtualmin Wachtwoord Herstellen
