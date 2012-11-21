@@ -1,0 +1,52 @@
+index_title=Virtualmin Recupera Password
+index_title2=Cloudmin Recupera Password
+index_title3=Recupera Password
+index_desc=Questa pagina ti permette di recuperare una password del proprietario di un Virtualmin server dimenticata, tramite l'invio di una mail all'indirizzo di contatto del vostro virtual server.
+index_desc2=Questa pagina ti permette di recuperare una password del proprietario di un sistema Cloudmin dimenticata, tramite l'invio di una mail all'indirizzo di contatto del proprietario dell'account.
+index_desc3=Questa pagina ti permette di recuperare una password del proprietario di un Virtualmin server o di un sistema Cloudmin che è stata dimenticata, tramite l'invio di una mail all'indirizzo di contatto del dominio o del proprietario.
+index_header=Server per il recupero password
+index_user=Login di amministrazione Virtualmin
+index_user2=Login del proprietario di un sistema Cloudmin
+index_user3=Login di Cloudmin o Virtualmin
+index_dom=Nome di dominio Virtualmin
+index_dom2=Nome di sistema Cloudmin
+index_dom3=Nome di dominio o sistema
+index_or=..o..
+index_email=Password Email
+index_usage=Questo modulo non è predisposto per essere usato da un utente Webmin regolare. Invece, i proprietari dei server Virtualmin che hanno dimenticato la loro password possono andare a $1 senza la neccessita di essere loggati. Nella pagina che appare, possono inserire uno username o un nome di dominio, e i dettagli per quel virtual server verranno spediti alla loro email.
+index_emailheader=Personalizza Recupera Email
+index_emaildesc=Questo form può essere usato per inserire un messaggio email personalizzato che verrà inviato per il recupero password. Le sostituzioni <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> ed altre possono essere usate in questo messaggio.
+index_emaildef=Invia messaggio email di default.
+index_emailset=Invia messaggio sottostante ..
+
+email_title=Recuperando La Password
+email_einput=Username di amministrazione o nome di dominio non inserito
+email_edom=Nessun virtual server trovato con il tuo username o nome di dominio
+email_edom2=Nessun virtual system trovato con il tuo username o hostname
+email_edom3=Nessun virtual server o virtual system trovato
+email_erate=Il tuo indirizzo IP ha richiesto troppe volte il recupero della password negli ultimi cinque minuti.
+email_subject=Recupero Password Virtualmin
+email_subject2=Recupero Password Cloudmin
+email_msg=Stai ricevendo questa email per una richiesta di recupero password per il virtual server $1 di Virtualmin da $5, il quale tu sei registrato come amministratore. Se non hai fatto questa richiesta, perfavore ignorate questa email.\n\nLe tue credenziali di login per il virtual server $1 di Virtualmin sono state recuperate con successo.\n\nUsername amministratore: $2\nPassword amministratore: $3\nURL amministrazione: $4\n\nPuoi loggarti subito usando queste credenziali.\n
+email_msg2=Stai ricevendo questa email per una richiesta di recupero password per l'account del proprietario del sistema Cloudmin $1 da $4. Se non hai fatto questa richiesta, perfavore ignorate questa email.\n\nLe tue credenziali di login per l'account Cloudmin sono state recuperate con successo.\n\nUsername del proprietario di sistema: $1\nPassword del proprietario di sistema: $2\nURL amministrazione: $3\n\nPuoi loggarti subito usando queste credenziali.\n
+
+email_eto=Il tuo server virtuale non ha un indirizzo email specificato!
+email_eto2=Il tuo account da proprietario di sistema non ha un indirizzo email specificato!
+email_eplainpass=La password non criptata per l'account del proprietario di sistema non è stata registrata - deve essere prima settata in Cloudmin
+email_done=Il login di amministrazione e la password per il tuo virtual server $2 sono stati spediti a $1. Se hai ancora problemi di accesso in Virtualmin, perfavore contattate l'amministratore di sistema master.
+email_done2=Il login e la password per il tuo account proprietario di sistema $2 sono stati spediti a $1. Se hai ancora problemi di accesso in Cloudmin, perfavore contattate l'amministratore di sistema master.
+email_failed=Recupero password fallito
+email_eproduct=Ne Virtualmin ne Cloudmin sono intallati, quindi nessun account per il recupero password disponibile
+email_edompass=La password del tuo virtual server per l'accesso $1 non può essere recuperata in quanto non è stata immagazzinata in Virtualmin.Perfavore contattate il vostro amministratore di sistema per resettare la password.
+
+log_email=Password spedita per il virtual server $1 a $2.
+log_email2=Password spedita per il propritario di sistema $1 a $2.
+log_save=Recupero email aggiornato
+
+
+save_err=Failed to save email message
+save_eanon=Not available to un-authenticated users!
+save_eemail=Nessun messaggio inserito
+
+login_forgot=Dimenticata la tua password Virtualmin?
+__norefs=1
