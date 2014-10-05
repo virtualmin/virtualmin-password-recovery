@@ -46,5 +46,5 @@ save_err=Failed to save email message
 save_eanon=Not available to un-authenticated users!
 save_eemail=No message entered
 
-login_forgot=Forgot your Virtualmin password?
+login_forgot=Forgot your Webmin password?
 __norefs=1
