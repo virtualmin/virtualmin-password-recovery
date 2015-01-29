@@ -34,6 +34,9 @@ $has_virt || $has_vm2 || &error_and_exit($text{'email_eproduct'});
 # Validate inputs
 $in{'user'} || $in{'dom'} || &error_and_exit($text{'email_einput'});
 
+# Figure out recovery mode
+$mode = $config{'mode'} == 0 ? $in{'mode'} : $config{'mode'};
+
 if ($has_virt) {
 	# Try to find the virtualmin domain
 	if ($in{'user'}) {
@@ -87,10 +90,59 @@ $dom || $owner ||
 			$has_vm2 ? $text{'email_edom2'} :
 				   $text{'email_edom'});
 
+# Only allow reset if there is a recovery address
+if ($mode == 1 && $dom) {
+	$dom->{'email'} || &error_and_exit($text{'email_edomrandom'});
+	}
+
+# Generate a new random password
+if ($mode == 1) {
+	if ($dom) {
+		# For Virtualmin domain
+		$randpass = &virtual_server::random_password();
+		foreach my $d (&virtual_server::get_domain_by("user", $dom->{'user'})) {
+			my $oldd = { %$d };
+			$d->{'pass'} = $randpass;
+			$d->{'pass_set'} = 1;
+			&virtual_server::generate_domain_password_hashes($d, 0);
+			if ($d->{'disabled'}) {
+				# Clear any saved passwords, as they should
+				# be reset at this point
+				$d->{'disabled_mysqlpass'} = undef;
+				$d->{'disabled_postgrespass'} = undef;
+				}
+			# Update all features
+			foreach my $f (@virtual_server::features) {
+				if ($virtual_server::config{$f} && $d->{$f}) {
+					local $mfunc =
+						"virtual_server::modify_".$f;
+					&$mfunc($d, $oldd);
+					}
+				}
+			# Update all plugins
+			foreach my $f (&virtual_server::list_feature_plugins()) {
+				if ($d->{$f}) {
+					&virtual_server::plugin_call(
+					    $f, "feature_modify", $d, $oldd);
+					}
+				}
+			&virtual_server::save_domain($d);
+			}
+		}
+	elsif ($owner) {
+		# For Cloudmin owner
+		$randpass = &server_manager::generate_random_password();
+		my $old = { %$owner };
+		$owner->{'pass'} = &acl::encrypt_password($randpass);
+		&server_manager::save_system_owner($owner, $old);
+		}
+	}
+
 $msg = &get_custom_email();
 if ($msg) {
 	# Use custom email, with substitutions
 	%hash = $dom ? %$dom : %$owner;
+	$hash{'PASS'} = $randpass if ($randpass);
 	$hash{'URL'} = $url;
 	$hash{'CLIENTIP'} = $ENV{'REMOTE_HOST'};
 	$hash{'USERAGENT'} = $ENV{'HTTP_USER_AGENT'};
@@ -102,7 +154,7 @@ elsif ($dom) {
 		&error_and_exit(&text('email_edompass', $dom->{'user'}));
 	$msg = &text('email_msg', $dom->{'dom'},
 				  $dom->{'user'},
-				  $dom->{'pass'},
+				  $randpass || $dom->{'pass'},
 				  $url,
 				  $ENV{'REMOTE_HOST'},
 				  $ENV{'HTTP_USER_AGENT'});
@@ -111,7 +163,7 @@ elsif ($dom) {
 elsif ($owner) {
 	# Use default Cloudmin message
 	$msg = &text('email_msg2', $owner->{'name'},
-				   $owner->{'acl'}->{'plainpass'},
+				   $randpass || $owner->{'acl'}->{'plainpass'},
 				   $url,
 				   $ENV{'REMOTE_HOST'},
 				   $ENV{'HTTP_USER_AGENT'});

@@ -39,14 +39,22 @@ else {
 	print &ui_form_start("email.cgi", "post");
 	print &ui_table_start($text{'index_header'}, undef, 2);
 
+	# Username or domain name
 	print &ui_table_row($text{'index_user'.$sfx},
 			    &ui_textbox("user", undef, 30));
 	print &ui_table_row(" ", $text{'index_or'});
 	print &ui_table_row($text{'index_dom'.$sfx},
 			    &ui_textbox("dom", undef, 60));
 
+	# Reset method (if allowed)
+	if ($config{'mode'} == 0) {
+		print &ui_table_row($text{'index_mode'},
+			&ui_radio("mode", 1, [ [ 1, $text{'index_mode1'} ],
+					       [ 2, $text{'index_mode2'} ] ]));
+		}
+
 	print &ui_table_end();
-	print &ui_form_end([ [ "email", $text{'index_email'} ] ]);
+	print &ui_form_end([ [ "email", $text{'index_submit'} ] ]);
 
 	&popup_footer();
 	}
