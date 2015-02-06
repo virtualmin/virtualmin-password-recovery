@@ -2,6 +2,7 @@
 # Show a page for Virtualmin domain owners or Cloudmin system owners to use to
 # retrieve their lost passwords via email.
 
+$trust_unknown_referers = 1;
 require './password-recovery-lib.pl';
 $sfx = $has_virt && $has_vm2 ? "3" : $has_vm2 ? "2" : "";
 
