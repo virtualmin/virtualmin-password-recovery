@@ -12,15 +12,47 @@ $err = &check_rate_limit();
 $err && &error_and_exit($err);
 
 # Check for Virtualmin or Cloudmin
-$has_virt || $has_vm2 || &error_and_exit($text{'email_eproduct'});
+$has_virt || $has_vm2 || $in{'usermin'} ||
+	&error_and_exit($text{'email_eproduct'});
 
 # Validate inputs
-$in{'user'} || $in{'dom'} || &error_and_exit($text{'email_einput'});
+$in{'user'} || $in{'dom'} || $in{'email'} ||
+	&error_and_exit($text{'email_einput'});
 
 # Figure out recovery mode
 $mode = $config{'mode'} == 0 ? $in{'mode'} : $config{'mode'};
 
-if ($has_virt) {
+if ($in{'usermin'}) {
+	# Try to find mailbox user
+	if ($in{'user'}) {
+		# Search by full username
+		$userd = &virtual_server::get_user_domain($in{'user'});
+		if ($userd) {
+			my @users = &virtual_server::list_domain_users(
+					$userd, 0, 1, 1, 1);
+			($user) = grep {
+				$_->{'user'} eq $in{'user'} ||
+				&virtual_server::replace_atsign($_->{'user'})
+				  eq $in{'user'}
+				} @users;
+			}
+		}
+	elsif ($in{'email'} =~ /^\S+\@\S+$/) {
+		# Search by email
+		($mb, $dname) = split(/\@/, $in{'email'});
+		$userd = &virtual_server::get_domain_by("dom", $dname);
+		if ($userd) {
+			my @users = &virtual_server::list_domain_users(
+					$userd, 0, 1, 1, 1);
+			($user) = grep {
+				&virtual_server::remove_userdom(
+					$_->{'user'}, $userd) eq $mb
+				} @users;
+			}
+		}
+	}
+
+if ($has_virt && !$user) {
 	# Try to find the virtualmin domain
 	if ($in{'user'}) {
 		# Search by username
@@ -42,7 +74,7 @@ if ($has_virt) {
 		}
 	}
 
-if ($has_vm2 && !$dom) {
+if ($has_vm2 && !$dom && !$user) {
 	# Try to find the Cloudmin system owner
 	if ($in{'user'}) {
 		# Search by system owner
@@ -68,14 +100,18 @@ if ($has_vm2 && !$dom) {
 	}
 
 # Make sure something was found
-$dom || $owner ||
-	&error_and_exit($has_virt && $has_vm2 ? $text{'email_edom3'} :
+$dom || $owner || $user ||
+	&error_and_exit($in{'usermin'} ? $text{'email_edom4'} :
+			$has_virt && $has_vm2 ? $text{'email_edom3'} :
 			$has_vm2 ? $text{'email_edom2'} :
 				   $text{'email_edom'});
 
 # Only allow reset if there is a recovery address
 if ($mode == 1 && $dom) {
 	$dom->{'email'} || &error_and_exit($text{'email_edomrandom'});
+	}
+if ($user) {
+	$user->{'recovery'} || &error_and_exit($text{'email_euserrandom'});
 	}
 
 # Generate a new random password

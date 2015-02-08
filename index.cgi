@@ -55,7 +55,7 @@ else {
 		}
 
 	print &ui_table_end();
-	print &ui_form_end([ [ "email", $text{'index_submit'} ] ]);
+	print &ui_form_end([ [ undef, $text{'index_submit'} ] ]);
 
 	&popup_footer();
 	}
