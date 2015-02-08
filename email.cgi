@@ -8,25 +8,8 @@ require './password-recovery-lib.pl';
 print "<center><h1>$text{'email_title'}</h1></center>\n";
 
 # Check IP rate limit - allow no more than 10 tries in 5 minutes
-$ratelimit_file = "$module_config_directory/ratelimit";
-&lock_file($ratelimit_file);
-&read_file($ratelimit_file, \%ratelimit);
-$ip = $ENV{'REMOTE_ADDR'};
-$now = time();
-if ($ratelimit{$ip."_last"} < $now-5*60) {
-	# More than 5 mins since the last try, so reset counter
-	$ratelimit{$ip} = 1;
-	}
-else {
-	# Recent, so up counter
-	$ratelimit{$ip}++;
-	}
-$ratelimit{$ip."_last"} = $now;
-&write_file($ratelimit_file, \%ratelimit);
-&unlock_file($ratelimit_file);
-if ($ratelimit{$ip} > 10) {
-	&error_and_exit($text{'email_erate'});
-	}
+$err = &check_rate_limit();
+$err && &error_and_exit($err);
 
 # Check for Virtualmin or Cloudmin
 $has_virt || $has_vm2 || &error_and_exit($text{'email_eproduct'});

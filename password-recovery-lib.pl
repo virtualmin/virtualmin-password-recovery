@@ -41,5 +41,31 @@ else {
 	}
 }
 
+# check_rate_limit()
+# Returns an error message if the IP is over it's reset rate limit
+sub check_rate_limit
+{
+my $ratelimit_file = "$module_config_directory/ratelimit";
+&lock_file($ratelimit_file);
+&read_file($ratelimit_file, \%ratelimit);
+my $ip = $ENV{'REMOTE_ADDR'};
+my $now = time();
+if ($ratelimit{$ip."_last"} < $now-5*60) {
+	# More than 5 mins since the last try, so reset counter
+	$ratelimit{$ip} = 1;
+	}
+else {
+	# Recent, so up counter
+	$ratelimit{$ip}++;
+	}
+$ratelimit{$ip."_last"} = $now;
+&write_file($ratelimit_file, \%ratelimit);
+&unlock_file($ratelimit_file);
+if ($ratelimit{$ip} > 10) {
+	return $text{'email_erate'};
+	}
+return undef;
+}
+
 1;
 
