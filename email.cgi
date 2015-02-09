@@ -50,6 +50,14 @@ if ($in{'usermin'}) {
 				} @users;
 			}
 		}
+	if ($user) {
+		# Work out Usermin URL
+		&foreign_require("usermin");
+		my %miniserv;
+		&usermin::get_usermin_miniserv_config(\%miniserv);
+		$url = $miniserv{'ssl'} ? "https" : "http";
+		$url .= "://$userd->{'dom'}:$miniserv{'port'}";
+		}
 	}
 
 if ($has_virt && !$user) {
@@ -116,7 +124,11 @@ if ($user) {
 
 # Generate a new random password
 if ($mode == 1) {
-	if ($dom) {
+	if ($user) {
+		# For Usermin user
+		# XXX
+		}
+	elsif ($dom) {
 		# For Virtualmin domain
 		$randpass = &virtual_server::random_password();
 		foreach my $d (&virtual_server::get_domain_by("user", $dom->{'user'})) {
@@ -160,12 +172,26 @@ if ($mode == 1) {
 $msg = &get_custom_email();
 if ($msg) {
 	# Use custom email, with substitutions
-	%hash = $dom ? %$dom : %$owner;
+	%hash = $user ? %$user : $dom ? %$dom : %$owner;
 	$hash{'PASS'} = $randpass if ($randpass);
 	$hash{'URL'} = $url;
 	$hash{'CLIENTIP'} = $ENV{'REMOTE_HOST'};
 	$hash{'USERAGENT'} = $ENV{'HTTP_USER_AGENT'};
 	$msg = &substitute_template($msg, \%hash);
+	}
+elsif ($user) {
+	# Use default Usermin message
+	$user->{'plainpass'} ||
+		&error_and_exit(&text('email_euserpass', $user->{'user'}));
+	$defemail = &virtual_server::remove_userdom($user->{'user'}, $userd).
+		    "\@".$userd->{'dom'};
+	$msg = &text('email_msg3', $user->{'user'},
+				   $user->{'email'} || $defemail,
+				   $randpass || $user->{'plainpass'},
+				   $url,
+				   $ENV{'REMOTE_HOST'},
+				   $ENV{'HTTP_USER_AGENT'});
+	$msg =~ s/\\n/\n/g;
 	}
 elsif ($dom) {
 	# Use default Virtualmin message
@@ -194,11 +220,13 @@ elsif ($owner) {
 $msg = join("\n", &mailboxes::wrap_lines($msg, 70))."\n";
 &mailboxes::send_text_mail($virtual_server::config{'from_addr'} ||
 			     &mailboxes::get_from_address(),
-			   $dom ? $dom->{'emailto'}
-				: $owner->{'acl'}->{'email'},
+			   $user ? $user->{'recovery'} :
+			   $dom ? $dom->{'emailto'} :
+				  $owner->{'acl'}->{'email'},
 			   undef,
-			   $dom ? $text{'email_subject'}
-				: $text{'email_subject2'},
+			   $user ? $text{'email_subject3'} :
+			   $dom ? $text{'email_subject'} :
+				  $text{'email_subject2'},
 			   $msg);
 
 # Tell the user
@@ -219,6 +247,15 @@ elsif ($owner) {
 	&webmin_log("email", undef, $owner->{'name'},
 		    { 'email' => $owner->{'acl'}->{'email'},
 		      'vm2' => 1 });
+	}
+elsif ($user) {
+        print "<p>",&text('email_done3', "<tt>$user->{'recovery'}</tt>",
+                                         "<tt>$user->{'user'}</tt>"),"<p>\n";
+
+        &popup_footer();
+        &webmin_log("email", undef, $user->{'user'},
+                    { 'email' => $user->{'recovery'},
+                      'usermin' => 1 });
 	}
 
 sub error_and_exit
