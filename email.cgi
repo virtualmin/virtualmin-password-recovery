@@ -126,12 +126,25 @@ if ($user) {
 if ($mode == 1) {
 	if ($user) {
 		# For Usermin user
-		# XXX
+		$randpass = &virtual_server::random_password();
+		my $olduser = { %$user };
+		$user->{'passmode'} = 3;
+		$user->{'plainpass'} = $randpass;
+		$user->{'pass'} = &encrypt_user_password(
+					$user, $user->{'plainpass'});
+		&modify_user($user, $olduser, $userd);
+
+                # Call plugin save functions
+                foreach $f (&list_mail_plugins()) {
+                	&plugin_call($f, "mailbox_modify",
+				     $user, $olduser, $userd);
+			}
 		}
 	elsif ($dom) {
 		# For Virtualmin domain
 		$randpass = &virtual_server::random_password();
-		foreach my $d (&virtual_server::get_domain_by("user", $dom->{'user'})) {
+		foreach my $d (&virtual_server::get_domain_by("user",
+							      $dom->{'user'})) {
 			my $oldd = { %$d };
 			$d->{'pass'} = $randpass;
 			$d->{'pass_set'} = 1;
