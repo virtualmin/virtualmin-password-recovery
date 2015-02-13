@@ -130,13 +130,13 @@ if ($mode == 1) {
 		my $olduser = { %$user };
 		$user->{'passmode'} = 3;
 		$user->{'plainpass'} = $randpass;
-		$user->{'pass'} = &encrypt_user_password(
+		$user->{'pass'} = &virtual_server::encrypt_user_password(
 					$user, $user->{'plainpass'});
-		&modify_user($user, $olduser, $userd);
+		&virtual_server::modify_user($user, $olduser, $userd);
 
                 # Call plugin save functions
-                foreach $f (&list_mail_plugins()) {
-                	&plugin_call($f, "mailbox_modify",
+                foreach $f (&virtual_server::list_mail_plugins()) {
+                	&virtual_server::plugin_call($f, "mailbox_modify",
 				     $user, $olduser, $userd);
 			}
 		}
@@ -246,6 +246,7 @@ $msg = join("\n", &mailboxes::wrap_lines($msg, 70))."\n";
 if ($dom) {
 	print "<p>",&text('email_done', "<tt>$dom->{'emailto'}</tt>",
 					"<tt>$dom->{'dom'}</tt>"),"<p>\n";
+	print &text('email_return', "/"),"<p>\n";
 
 	&popup_footer();
 	&webmin_log("email", undef, $dom->{'dom'},
@@ -255,6 +256,7 @@ if ($dom) {
 elsif ($owner) {
 	print "<p>",&text('email_done2', "<tt>$owner->{'acl'}->{'email'}</tt>",
 					 "<tt>$owner->{'name'}</tt>"),"<p>\n";
+	print &text('email_return', "/"),"<p>\n";
 
 	&popup_footer();
 	&webmin_log("email", undef, $owner->{'name'},
@@ -264,6 +266,7 @@ elsif ($owner) {
 elsif ($user) {
         print "<p>",&text('email_done3', "<tt>$user->{'recovery'}</tt>",
                                          "<tt>$user->{'user'}</tt>"),"<p>\n";
+	print &text('email_return', $url),"<p>\n";
 
         &popup_footer();
         &webmin_log("email", undef, $user->{'user'},
