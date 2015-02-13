@@ -61,4 +61,6 @@ save_eanon=Not available to un-authenticated users!
 save_eemail=No message entered
 
 login_forgot=Forgot your Webmin password?
+login_forgot2=Forgot your Usermin password?
+
 __norefs=1
