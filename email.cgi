@@ -11,6 +11,19 @@ print "<center><h1>$text{'email_title'}</h1></center>\n";
 $err = &check_rate_limit();
 $err && &error_and_exit($err);
 
+# Check if this is a callback from an email
+if ($in{'id'} =~ /^[a-z0-9]+$/i) {
+	# XXX check if too old
+	my %link;
+	&read_file("$recovery_link_dir/$in{'id'}", \%link);
+	$link{'id'} eq $in{'id'} || &error_and_exit($text{'email_eid'});
+	%in = %link;
+	&unlink_file("$recovery_link_dir/$in{'id'}");
+	}
+elsif ($in{'id'}) {
+	&error($text{'email_eid'});
+	}
+
 # Check for Virtualmin or Cloudmin
 $has_virt || $has_vm2 || $in{'usermin'} ||
 	&error_and_exit($text{'email_eproduct'});
@@ -55,8 +68,9 @@ if ($in{'usermin'}) {
 		&foreign_require("usermin");
 		my %miniserv;
 		&usermin::get_usermin_miniserv_config(\%miniserv);
+		$urlhost = $userd->{'dom'};
 		$url = $miniserv{'ssl'} ? "https" : "http";
-		$url .= "://$userd->{'dom'}:$miniserv{'port'}";
+		$url .= "://$urlhost:$miniserv{'port'}";
 		}
 	}
 
@@ -77,8 +91,9 @@ if ($has_virt && !$user) {
 		}
 	if ($dom) {
 		$dom->{'emailto'} || &error_and_exit($text{'email_eto'});
+		$urlhost = $dom->{'dom'};
 		$url = uc($ENV{'HTTPS'}) eq "ON" ? "https" : "http";
-		$url .= "://$dom->{'dom'}:$ENV{'SERVER_PORT'}";
+		$url .= "://$urlhost:$ENV{'SERVER_PORT'}";
 		}
 	}
 
@@ -102,8 +117,8 @@ if ($has_vm2 && !$dom && !$user) {
 		$owner->{'acl'}->{'plainpass'} ||
 			&error_and_exit($text{'email_eplainpass'});
 		$url = uc($ENV{'HTTPS'}) eq "ON" ? "https" : "http";
-		($host) = split(/:/, $ENV{'HTTP_HOST'});
-		$url .= "://$host:$ENV{'SERVER_PORT'}";
+		($urlhost) = split(/:/, $ENV{'HTTP_HOST'});
+		$url .= "://$urlhost:$ENV{'SERVER_PORT'}";
 		}
 	}
 
@@ -122,8 +137,27 @@ if ($user) {
 	$user->{'recovery'} || &error_and_exit($text{'email_euserrandom'});
 	}
 
-# Generate a new random password
-if ($mode == 1) {
+# Check if immediate change to a random password is possible
+$immediate = $config{'immediate'} || $in{'id'};
+
+if ($mode == 1 && !$immediate) {
+	# Password reset requires clicking on a link, sent via email
+
+	# Generate an ID and save recovery details
+	my %link = %in;
+	$link{'id'} = &generate_random_id();
+	$link{'id'} || &error_and_exit($text{'email_esid'});
+	$link{'remote'} = $ENV{'REMOTE_ADDR'};
+	$link{'time'} = time();
+	&write_file("$recovery_link_dir/$link{'id'}", \%link);
+
+	# Work out link back to this page
+	$lurl = uc($ENV{'HTTPS'}) eq "ON" ? "https" : "http";
+	$lurl .= "://$urlhost:$ENV{'SERVER_PORT'}/$module_name/email.cgi".
+		 "?id=".&urlize($link{'id'});
+	}
+elsif ($mode == 1 && $immediate) {
+	# Generate a new random password
 	if ($user) {
 		# For Usermin user
 		$randpass = &virtual_server::random_password();
@@ -182,15 +216,21 @@ if ($mode == 1) {
 		}
 	}
 
-$msg = &get_custom_email();
-if ($msg) {
+$custommsg = &get_custom_email();
+
+if ($mode == 1 && !$immediate) {
+	# Message just contains a password reset link
+	$msg = &text('email_msglink', $lurl);
+	$msg =~ s/\\n/\n/g;
+	}
+elsif ($custommsg) {
 	# Use custom email, with substitutions
 	%hash = $user ? %$user : $dom ? %$dom : %$owner;
 	$hash{'PASS'} = $randpass if ($randpass);
 	$hash{'URL'} = $url;
 	$hash{'CLIENTIP'} = $ENV{'REMOTE_HOST'};
 	$hash{'USERAGENT'} = $ENV{'HTTP_USER_AGENT'};
-	$msg = &substitute_template($msg, \%hash);
+	$msg = &substitute_template($custommsg, \%hash);
 	}
 elsif ($user) {
 	# Use default Usermin message
@@ -231,11 +271,12 @@ elsif ($owner) {
 # Send email
 &foreign_require("mailboxes", "mailboxes-lib.pl");
 $msg = join("\n", &mailboxes::wrap_lines($msg, 70))."\n";
+$emailto = $user ? $user->{'recovery'} :
+	   $dom ? $dom->{'emailto'} :
+		  $owner->{'acl'}->{'email'};
 &mailboxes::send_text_mail($virtual_server::config{'from_addr'} ||
 			     &mailboxes::get_from_address(),
-			   $user ? $user->{'recovery'} :
-			   $dom ? $dom->{'emailto'} :
-				  $owner->{'acl'}->{'email'},
+			   $emailto,
 			   undef,
 			   $user ? $text{'email_subject3'} :
 			   $dom ? $text{'email_subject'} :
@@ -243,34 +284,38 @@ $msg = join("\n", &mailboxes::wrap_lines($msg, 70))."\n";
 			   $msg);
 
 # Tell the user
-if ($dom) {
-	print "<p>",&text('email_done', "<tt>$dom->{'emailto'}</tt>",
+if ($mode == 1 && !$immediate) {
+	print "<p>",&text('email_donelink', "<tt>$emailto</tt>"),"</p>\n";
+	&popup_footer();
+	}
+elsif ($dom) {
+	print "<p>",&text('email_done', "<tt>$emailto</tt>",
 					"<tt>$dom->{'dom'}</tt>"),"<p>\n";
 	print &text('email_return', "/"),"<p>\n";
 
 	&popup_footer();
 	&webmin_log("email", undef, $dom->{'dom'},
-		    { 'email' => $dom->{'emailto'},
+		    { 'email' => $emailto,
 		      'virt' => 1 });
 	}
 elsif ($owner) {
-	print "<p>",&text('email_done2', "<tt>$owner->{'acl'}->{'email'}</tt>",
+	print "<p>",&text('email_done2', "<tt>$emailto</tt>",
 					 "<tt>$owner->{'name'}</tt>"),"<p>\n";
 	print &text('email_return', "/"),"<p>\n";
 
 	&popup_footer();
 	&webmin_log("email", undef, $owner->{'name'},
-		    { 'email' => $owner->{'acl'}->{'email'},
+		    { 'email' => $emailto,
 		      'vm2' => 1 });
 	}
 elsif ($user) {
-        print "<p>",&text('email_done3', "<tt>$user->{'recovery'}</tt>",
+        print "<p>",&text('email_done3', "<tt>$emailto</tt>",
                                          "<tt>$user->{'user'}</tt>"),"<p>\n";
 	print &text('email_return', $url),"<p>\n";
 
         &popup_footer();
         &webmin_log("email", undef, $user->{'user'},
-                    { 'email' => $user->{'recovery'},
+                    { 'email' => $emailto,
                       'usermin' => 1 });
 	}
 

@@ -15,6 +15,8 @@ if (&foreign_check("server-manager")) {
 
 $custom_email_file = "$module_config_directory/email";
 
+$recovery_link_dir = "$module_config_directory/links";
+
 sub get_custom_email
 {
 if (open(CUSTOM, $custom_email_file)) {
@@ -63,6 +65,21 @@ $ratelimit{$ip."_last"} = $now;
 &unlock_file($ratelimit_file);
 if ($ratelimit{$ip} > 10) {
 	return $text{'email_erate'};
+	}
+return undef;
+}
+
+# generate_random_id()
+# Generate an ID string that can be used for a password reset link
+sub generate_random_id
+{
+if (open(RANDOM, "/dev/urandom")) {
+	my $sid;
+	if (read(RANDOM, $tmpsid, 16) == 16) {
+		$sid = lc(unpack('h*',$tmpsid));
+		}
+	close(RANDOM);
+	return $sid;
 	}
 return undef;
 }

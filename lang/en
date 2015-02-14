@@ -52,6 +52,7 @@ email_eproduct=Neither Virtualmin or Cloudmin is installed, so no accounts for p
 email_edompass=Your virtual server password for login $1 cannot be recovered as it has not been stored by Virtualmin. Please contact your system administrator to reset the password.
 email_euserpass=Your Usermin password for login $1 cannot be recovered as it has not been stored by Virtualmin. Please contact your system administrator to reset the password.
 email_return=Return to the <a href='$1'>login form</a> to use your new password.
+email_eid=Invalid message ID!
 
 log_email=Sent password for virtual server $1 to $2.
 log_email2=Sent password for system owner $1 to $2.
