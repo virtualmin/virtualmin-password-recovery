@@ -137,6 +137,14 @@ if ($mode == 1 && $dom) {
 	$dom->{'email'} || &error_and_exit($text{'email_edomrandom'});
 	}
 if ($user) {
+	if (!$user->{'recovery'}) {
+		# Virtualmin versions before 4.15 don't set this field yet,
+		# but we can read it manually
+		$rfile = "$user->{'home'}/.usermin/changepass/recovery";
+		$user->{'recovery'} = &virtual_server::write_as_mailbox_user(
+			$user, sub { &read_file_contents($rfile) });
+		$user->{'recovert'} =~ s/\r|\n//g;
+		}
 	$user->{'recovery'} || &error_and_exit($text{'email_euserrandom'});
 	}
 
