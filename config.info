@@ -1,1 +1,2 @@
 mode=Password recovery mode,1,2-Email plaintext password,1-Generate recovery password,0-Let user choose
+immediate=Require clicking on a link in email to reset password?,1,1-Yes,0-No

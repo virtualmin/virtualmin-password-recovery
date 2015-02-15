@@ -53,6 +53,13 @@ email_edompass=Your virtual server password for login $1 cannot be recovered as 
 email_euserpass=Your Usermin password for login $1 cannot be recovered as it has not been stored by Virtualmin. Please contact your system administrator to reset the password.
 email_return=Return to the <a href='$1'>login form</a> to use your new password.
 email_eid=Invalid message ID!
+email_esid=Failed to generate random ID!
+email_msglink=You are receiving this email due to a request for password recovery for the Virtualmin virtual server $2 from $3. To proceed with recovery, click on this link :\n$1\n\nIf you did not make this request, please ignore this email.
+email_msglink2=You are receiving this email due to a request for password recovery for the Cloudmin system owner $2 from $3. To proceed with recovery, click on this link :\n$1\n\nIf you did not make this request, please ignore this email.
+email_msglink3=You are receiving this email due to a request for password recovery for the Usermin account $2 from $3. To proceed with recovery, click on this link :\n$1\n\nIf you did not make this request, please ignore this email.
+email_donelink=Email has been sent to your recovery address $1 containing a link that must be clicked on to reset your password.
+email_linkfor=Link For $1
+email_etime=Recovery email is more than 1 day old!
 
 log_email=Sent password for virtual server $1 to $2.
 log_email2=Sent password for system owner $1 to $2.

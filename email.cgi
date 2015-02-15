@@ -2,6 +2,7 @@
 # Find the domain, and send off email. Rate limiting is used to prevent too
 # many requests from the same IP.
 
+$trust_unknown_referers = 1;
 require './password-recovery-lib.pl';
 &popup_header($text{'email_title'});
 &ReadParse();
@@ -13,12 +14,14 @@ $err && &error_and_exit($err);
 
 # Check if this is a callback from an email
 if ($in{'id'} =~ /^[a-z0-9]+$/i) {
-	# XXX check if too old
 	my %link;
 	&read_file("$recovery_link_dir/$in{'id'}", \%link);
 	$link{'id'} eq $in{'id'} || &error_and_exit($text{'email_eid'});
 	%in = %link;
 	&unlink_file("$recovery_link_dir/$in{'id'}");
+	if (time() - $link{'time'} > 86400) {
+		&error_and_exit($text{'email_etime'});
+		}
 	}
 elsif ($in{'id'}) {
 	&error($text{'email_eid'});
@@ -149,6 +152,7 @@ if ($mode == 1 && !$immediate) {
 	$link{'id'} || &error_and_exit($text{'email_esid'});
 	$link{'remote'} = $ENV{'REMOTE_ADDR'};
 	$link{'time'} = time();
+	&make_dir($recovery_link_dir, 0700);
 	&write_file("$recovery_link_dir/$link{'id'}", \%link);
 
 	# Work out link back to this page
@@ -220,7 +224,18 @@ $custommsg = &get_custom_email();
 
 if ($mode == 1 && !$immediate) {
 	# Message just contains a password reset link
-	$msg = &text('email_msglink', $lurl);
+	if ($user) {
+		$msg = &text('email_msglink3', $lurl, $user->{'user'},
+			     		       $ENV{'REMOTE_HOST'});
+		}
+	elsif ($dom) {
+		$msg = &text('email_msglink', $lurl, $dom->{'dom'},
+					      $ENV{'REMOTE_HOST'});
+		}
+	elsif ($owner) {
+		$msg = &text('email_msglink2', $lurl, $owner->{'name'},
+					       $ENV{'REMOTE_HOST'});
+		}
 	$msg =~ s/\\n/\n/g;
 	}
 elsif ($custommsg) {
@@ -274,13 +289,17 @@ $msg = join("\n", &mailboxes::wrap_lines($msg, 70))."\n";
 $emailto = $user ? $user->{'recovery'} :
 	   $dom ? $dom->{'emailto'} :
 		  $owner->{'acl'}->{'email'};
+$subject = $user ? $text{'email_subject3'} :
+	   $dom ? $text{'email_subject'} :
+		  $text{'email_subject2'};
+if ($mode == 1 && !$immediate) {
+	$subject = &text('email_linkfor', $subject);
+	}
 &mailboxes::send_text_mail($virtual_server::config{'from_addr'} ||
 			     &mailboxes::get_from_address(),
 			   $emailto,
 			   undef,
-			   $user ? $text{'email_subject3'} :
-			   $dom ? $text{'email_subject'} :
-				  $text{'email_subject2'},
+			   $subject,
 			   $msg);
 
 # Tell the user
