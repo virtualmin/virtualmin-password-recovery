@@ -94,9 +94,7 @@ if ($has_virt && !$user) {
 		}
 	if ($dom) {
 		$dom->{'emailto'} || &error_and_exit($text{'email_eto'});
-		$urlhost = $dom->{'dom'};
-		$url = uc($ENV{'HTTPS'}) eq "ON" ? "https" : "http";
-		$url .= "://$urlhost:$ENV{'SERVER_PORT'}";
+		$url = &virtual_server::get_virtualmin_url($dom);
 		}
 	}
 
