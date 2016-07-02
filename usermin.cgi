@@ -1,8 +1,11 @@
 #!/usr/local/bin/perl
 # Show a page for Usermin users to use to retrieve their lost passwords via
 # email.
+use strict;
+use warnings;
+our(%text, %config);
 
-$trust_unknown_referers = 1;
+our $trust_unknown_referers = 1;
 require './password-recovery-lib.pl';
 
 # If logged in, just go to the setup form
@@ -39,4 +42,3 @@ print &ui_table_end();
 print &ui_form_end([ [ undef, $text{'index_submit'} ] ]);
 
 &popup_footer();
-

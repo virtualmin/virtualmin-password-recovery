@@ -1,5 +1,10 @@
 # Functions for re-sending a virtualmin domain owner or cloudmin system
 # owner's password
+use strict;
+use warnings;
+our %text;
+our $module_config_directory;
+our ($has_virt, $has_vm2);
 
 BEGIN { push(@INC, ".."); };
 eval "use WebminCore;";
@@ -13,18 +18,17 @@ if (&foreign_check("server-manager")) {
 	$has_vm2 = 1;
 	}
 
-$custom_email_file = "$module_config_directory/email";
-
-$recovery_link_dir = "$module_config_directory/links";
+our $custom_email_file = "$module_config_directory/email";
+our $recovery_link_dir = "$module_config_directory/links";
 
 sub get_custom_email
 {
-if (open(CUSTOM, $custom_email_file)) {
-	local $rv;
-	while(<CUSTOM>) {
+if (open(my $CUSTOM, "<", $custom_email_file)) {
+	my $rv;
+	while(<$CUSTOM>) {
 		$rv .= $_;
 		}
-	close(CUSTOM);
+	close($CUSTOM);
 	return $rv;
 	}
 return undef;
@@ -32,11 +36,11 @@ return undef;
 
 sub save_custom_email
 {
-local ($email) = @_;
+my ($email) = @_;
 if (defined($email)) {
-	open(CUSTOM, ">$custom_email_file");
-	print CUSTOM $email;
-	close(CUSTOM);
+	open(my $CUSTOM, ">", "$custom_email_file");
+	print $CUSTOM $email;
+	close($CUSTOM);
 	}
 else {
 	unlink($custom_email_file);
@@ -49,6 +53,7 @@ sub check_rate_limit
 {
 my $ratelimit_file = "$module_config_directory/ratelimit";
 &lock_file($ratelimit_file);
+my %ratelimit;
 &read_file($ratelimit_file, \%ratelimit);
 my $ip = $ENV{'REMOTE_ADDR'};
 my $now = time();
@@ -73,16 +78,16 @@ return undef;
 # Generate an ID string that can be used for a password reset link
 sub generate_random_id
 {
-if (open(RANDOM, "/dev/urandom")) {
+if (open(my $RANDOM, "<", "/dev/urandom")) {
 	my $sid;
-	if (read(RANDOM, $tmpsid, 16) == 16) {
+	my $tmpsid;
+	if (read($RANDOM, $tmpsid, 16) == 16) {
 		$sid = lc(unpack('h*',$tmpsid));
 		}
-	close(RANDOM);
+	close($RANDOM);
 	return $sid;
 	}
 return undef;
 }
 
 1;
-

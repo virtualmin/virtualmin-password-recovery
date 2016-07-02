@@ -1,3 +1,8 @@
+use strict;
+use warnings;
+our (%text);
+our $module_name;
+our $config_directory;
 
 require 'password-recovery-lib.pl';
 
@@ -32,4 +37,3 @@ if (&foreign_installed("usermin")) {
 		}
 	}
 }
-

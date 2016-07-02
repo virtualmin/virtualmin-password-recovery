@@ -1,15 +1,21 @@
 #!/usr/local/bin/perl
 # Find the domain, and send off email. Rate limiting is used to prevent too
 # many requests from the same IP.
+use strict;
+use warnings;
+our (%text, %in, %config);
+our $module_name;
+our ($has_virt, $has_vm2);
 
-$trust_unknown_referers = 1;
+our $trust_unknown_referers = 1;
+our $recovery_link_dir;
 require './password-recovery-lib.pl';
 &popup_header($text{'email_title'});
 &ReadParse();
 print "<center><h1>$text{'email_title'}</h1></center>\n";
 
 # Check IP rate limit - allow no more than 10 tries in 5 minutes
-$err = &check_rate_limit();
+my $err = &check_rate_limit();
 $err && &error_and_exit($err);
 
 # Check if this is a callback from an email
@@ -36,8 +42,10 @@ $in{'user'} || $in{'dom'} || $in{'email'} ||
 	&error_and_exit($text{'email_einput'});
 
 # Figure out recovery mode
-$mode = $config{'mode'} == 0 ? $in{'mode'} : $config{'mode'};
+my $mode = $config{'mode'} == 0 ? $in{'mode'} : $config{'mode'};
 
+my ($user, $userd);
+my ($urlhost, $url);
 if ($in{'usermin'}) {
 	# Try to find mailbox user
 	if ($in{'user'}) {
@@ -46,7 +54,7 @@ if ($in{'usermin'}) {
 		if ($userd) {
 			my @users = &virtual_server::list_domain_users(
 					$userd, 0, 1, 1, 1);
-			($user) = grep {
+			my ($user) = grep {
 				$_->{'user'} eq $in{'user'} ||
 				&virtual_server::replace_atsign($_->{'user'})
 				  eq $in{'user'}
@@ -55,8 +63,8 @@ if ($in{'usermin'}) {
 		}
 	elsif ($in{'email'} =~ /^\S+\@\S+$/) {
 		# Search by email
-		($mb, $dname) = split(/\@/, $in{'email'});
-		$userd = &virtual_server::get_domain_by("dom", $dname);
+		my ($mb, $dname) = split(/\@/, $in{'email'});
+		my $userd = &virtual_server::get_domain_by("dom", $dname);
 		if ($userd) {
 			my @users = &virtual_server::list_domain_users(
 					$userd, 0, 1, 1, 1);
@@ -77,6 +85,7 @@ if ($in{'usermin'}) {
 		}
 	}
 
+my $dom;
 if ($has_virt && !$user) {
 	# Try to find the virtualmin domain
 	if ($in{'user'}) {
@@ -98,6 +107,7 @@ if ($has_virt && !$user) {
 		}
 	}
 
+my $owner;
 if ($has_vm2 && !$dom && !$user) {
 	# Try to find the Cloudmin system owner
 	if ($in{'user'}) {
@@ -106,7 +116,7 @@ if ($has_vm2 && !$dom && !$user) {
 		}
 	if ($in{'dom'} && !$owner) {
 		# Search by host name
-		$server = &server_manager::get_managed_system_by("host",
+		my $server = &server_manager::get_managed_system_by("host",
 								 $in{'dom'});
 		if ($server) {
 			($owner) = &server_manager::get_server_owners($server);
@@ -138,7 +148,7 @@ if ($user) {
 	if (!$user->{'recovery'}) {
 		# Virtualmin versions before 4.15 don't set this field yet,
 		# but we can read it manually
-		$rfile = "$user->{'home'}/.usermin/changepass/recovery";
+		my $rfile = "$user->{'home'}/.usermin/changepass/recovery";
 		$user->{'recovery'} = &virtual_server::write_as_mailbox_user(
 			$user, sub { &read_file_contents($rfile) });
 		$user->{'recovert'} =~ s/\r|\n//g;
@@ -147,8 +157,10 @@ if ($user) {
 	}
 
 # Check if immediate change to a random password is possible
-$immediate = $config{'immediate'} || $in{'id'};
+my $immediate = $config{'immediate'} || $in{'id'};
 
+my $lurl;
+my $randpass;
 if ($mode == 1 && !$immediate) {
 	# Password reset requires clicking on a link, sent via email
 
@@ -179,7 +191,7 @@ elsif ($mode == 1 && $immediate) {
 		&virtual_server::modify_user($user, $olduser, $userd);
 
                 # Call plugin save functions
-                foreach $f (&virtual_server::list_mail_plugins()) {
+                foreach my $f (&virtual_server::list_mail_plugins()) {
                 	&virtual_server::plugin_call($f, "mailbox_modify",
 				     $user, $olduser, $userd);
 			}
@@ -200,13 +212,15 @@ elsif ($mode == 1 && $immediate) {
 				$d->{'disabled_postgrespass'} = undef;
 				}
 			# Update all features
+			no warnings "once";
 			foreach my $f (@virtual_server::features) {
 				if ($virtual_server::config{$f} && $d->{$f}) {
-					local $mfunc =
+					my $mfunc =
 						"virtual_server::modify_".$f;
 					&$mfunc($d, $oldd);
 					}
 				}
+			use warnings "once";
 			# Update all plugins
 			foreach my $f (&virtual_server::list_feature_plugins()) {
 				if ($d->{$f}) {
@@ -226,8 +240,8 @@ elsif ($mode == 1 && $immediate) {
 		}
 	}
 
-$custommsg = &get_custom_email();
-
+my $custommsg = &get_custom_email();
+my $msg;
 if ($mode == 1 && !$immediate) {
 	# Message just contains a password reset link
 	if ($user) {
@@ -246,18 +260,18 @@ if ($mode == 1 && !$immediate) {
 	}
 elsif ($custommsg) {
 	# Use custom email, with substitutions
-	%hash = $user ? %$user : $dom ? %$dom : %$owner;
-	$hash{'PASS'} = $randpass if ($randpass);
-	$hash{'URL'} = $url;
-	$hash{'CLIENTIP'} = $ENV{'REMOTE_HOST'};
-	$hash{'USERAGENT'} = $ENV{'HTTP_USER_AGENT'};
-	$msg = &substitute_template($custommsg, \%hash);
+	my %userdata = $user ? %$user : $dom ? %$dom : %$owner;
+	$userdata{'PASS'} = $randpass if ($randpass);
+	$userdata{'URL'} = $url;
+	$userdata{'CLIENTIP'} = $ENV{'REMOTE_HOST'};
+	$userdata{'USERAGENT'} = $ENV{'HTTP_USER_AGENT'};
+	$msg = &substitute_template($custommsg, \%userdata);
 	}
 elsif ($user) {
 	# Use default Usermin message
 	$user->{'plainpass'} ||
 		&error_and_exit(&text('email_euserpass', $user->{'user'}));
-	$defemail = &virtual_server::remove_userdom($user->{'user'}, $userd).
+	my $defemail = &virtual_server::remove_userdom($user->{'user'}, $userd).
 		    "\@".$userd->{'dom'};
 	$msg = &text('email_msg3', $user->{'user'},
 				   $user->{'email'} || $defemail,
@@ -292,10 +306,10 @@ elsif ($owner) {
 # Send email
 &foreign_require("mailboxes", "mailboxes-lib.pl");
 $msg = join("\n", &mailboxes::wrap_lines($msg, 70))."\n";
-$emailto = $user ? $user->{'recovery'} :
+my $emailto = $user ? $user->{'recovery'} :
 	   $dom ? $dom->{'emailto'} :
 		  $owner->{'acl'}->{'email'};
-$subject = $user ? $text{'email_subject3'} :
+my $subject = $user ? $text{'email_subject3'} :
 	   $dom ? $text{'email_subject'} :
 		  $text{'email_subject2'};
 if ($mode == 1 && !$immediate) {
@@ -350,4 +364,3 @@ print "<p><b>$text{'email_failed'} : $_[0]</b><p>\n";
 &popup_footer();
 exit;
 }
-

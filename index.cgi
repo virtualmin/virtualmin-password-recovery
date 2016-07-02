@@ -1,16 +1,21 @@
 #!/usr/local/bin/perl
 # Show a page for Virtualmin domain owners or Cloudmin system owners to use to
 # retrieve their lost passwords via email.
+use strict;
+use warnings;
+our (%text, %config);
+our ($has_virt, $has_vm2);
+our $module_name;
 
-$trust_unknown_referers = 1;
+our $trust_unknown_referers = 1;
 require './password-recovery-lib.pl';
-$sfx = $has_virt && $has_vm2 ? "3" : $has_vm2 ? "2" : "";
+my $sfx = $has_virt && $has_vm2 ? "3" : $has_vm2 ? "2" : "";
 
 if (!$ENV{"ANONYMOUS_USER"}) {
 	# Being accessed non-anonymously .. tell the admin
 	&ui_print_header(undef, $text{'index_title'.$sfx}, "", undef, 0, 1);
 
-	$url = uc($ENV{'HTTPS'}) eq "ON" ? "https" : "http";
+	my $url = uc($ENV{'HTTPS'}) eq "ON" ? "https" : "http";
 	$url .= "://$ENV{'SERVER_NAME'}:$ENV{'SERVER_PORT'}";
 	$url .= "/$module_name/";
 	print "<p>",&text('index_usage', "<a href='$url'>$url</a>"),"</p>\n";
@@ -20,7 +25,7 @@ if (!$ENV{"ANONYMOUS_USER"}) {
 	print &ui_subheading($text{'index_emailheader'});
 	print $text{'index_emaildesc'},"<p>\n";
 	print &ui_form_start("save_email.cgi", "form-data");
-	$email = &get_custom_email();
+	my $email = &get_custom_email();
 	print &ui_radio("email_def", $email ? 0 : 1,
 			[ [ 1, $text{'index_emaildef'} ],
 			  [ 0, $text{'index_emailset'} ] ]),"<br>\n";
@@ -59,4 +64,3 @@ else {
 
 	&popup_footer();
 	}
-

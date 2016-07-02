@@ -1,5 +1,9 @@
 #!/usr/local/bin/perl
 # Save custom recovery email
+use strict;
+use warnings;
+our (%text, %in);
+our $custom_email_file;
 
 require './password-recovery-lib.pl';
 &ReadParseMime();
@@ -22,4 +26,3 @@ else {
 
 &webmin_log("save");
 &redirect("");
-

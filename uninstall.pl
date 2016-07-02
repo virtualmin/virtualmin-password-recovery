@@ -1,3 +1,7 @@
+use strict;
+use warnings;
+our %text;
+our $config_directory;
 
 require 'password-recovery-lib.pl';
 
