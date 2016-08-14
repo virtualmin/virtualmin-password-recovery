@@ -46,6 +46,7 @@ my $mode = $config{'mode'} == 0 ? $in{'mode'} : $config{'mode'};
 
 my ($user, $userd);
 my ($urlhost, $url);
+($urlhost) = split(/:/, $ENV{'HTTP_HOST'});
 if ($in{'usermin'}) {
 	# Try to find mailbox user
 	if ($in{'user'}) {
@@ -128,7 +129,6 @@ if ($has_vm2 && !$dom && !$user) {
 		$owner->{'acl'}->{'plainpass'} ||
 			&error_and_exit($text{'email_eplainpass'});
 		$url = uc($ENV{'HTTPS'}) eq "ON" ? "https" : "http";
-		($urlhost) = split(/:/, $ENV{'HTTP_HOST'});
 		$url .= "://$urlhost:$ENV{'SERVER_PORT'}";
 		}
 	}
@@ -215,6 +215,7 @@ elsif ($mode == 1 && $immediate) {
 			no warnings "once";
 			foreach my $f (@virtual_server::features) {
 				if ($virtual_server::config{$f} && $d->{$f}) {
+					no strict;
 					my $mfunc =
 						"virtual_server::modify_".$f;
 					&$mfunc($d, $oldd);
