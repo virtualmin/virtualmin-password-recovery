@@ -270,7 +270,7 @@ elsif ($custommsg) {
 	}
 elsif ($user) {
 	# Use default Usermin message
-	$user->{'plainpass'} ||
+	$randpass || $user->{'plainpass'} ||
 		&error_and_exit(&text('email_euserpass', $user->{'user'}));
 	my $defemail = &virtual_server::remove_userdom($user->{'user'}, $userd).
 		    "\@".$userd->{'dom'};
@@ -284,7 +284,7 @@ elsif ($user) {
 	}
 elsif ($dom) {
 	# Use default Virtualmin message
-	$dom->{'pass'} ||
+	$randpass || $dom->{'pass'} ||
 		&error_and_exit(&text('email_edompass', $dom->{'user'}));
 	$msg = &text('email_msg', $dom->{'dom'},
 				  $dom->{'user'},
@@ -296,6 +296,8 @@ elsif ($dom) {
 	}
 elsif ($owner) {
 	# Use default Cloudmin message
+	$randpass || $owner->{'acl'}->{'plainpass'} ||
+		&error_and_exit(&text('email_eownerpass', $dom->{'user'}));
 	$msg = &text('email_msg2', $owner->{'name'},
 				   $randpass || $owner->{'acl'}->{'plainpass'},
 				   $url,
