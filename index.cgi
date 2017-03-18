@@ -13,7 +13,7 @@ my $sfx = $has_virt && $has_vm2 ? "3" : $has_vm2 ? "2" : "";
 
 if (!$ENV{"ANONYMOUS_USER"}) {
 	# Being accessed non-anonymously .. tell the admin
-	&ui_print_header(undef, $text{'index_title'.$sfx}, "", undef, 0, 1);
+	&ui_print_header(undef, $text{'index_title'.$sfx}, "", undef, 1, 1);
 
 	my $url = uc($ENV{'HTTPS'}) eq "ON" ? "https" : "http";
 	$url .= "://$ENV{'SERVER_NAME'}:$ENV{'SERVER_PORT'}";
