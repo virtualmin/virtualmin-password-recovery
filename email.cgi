@@ -65,7 +65,7 @@ if ($in{'usermin'}) {
 	elsif ($in{'email'} =~ /^\S+\@\S+$/) {
 		# Search by email
 		my ($mb, $dname) = split(/\@/, $in{'email'});
-		my $userd = &virtual_server::get_domain_by("dom", $dname);
+		$userd = &virtual_server::get_domain_by("dom", $dname);
 		if ($userd) {
 			my @users = &virtual_server::list_domain_users(
 					$userd, 0, 1, 1, 1);
