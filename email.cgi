@@ -55,7 +55,7 @@ if ($in{'usermin'}) {
 		if ($userd) {
 			my @users = &virtual_server::list_domain_users(
 					$userd, 0, 1, 1, 1);
-			my ($user) = grep {
+			($user) = grep {
 				$_->{'user'} eq $in{'user'} ||
 				&virtual_server::replace_atsign($_->{'user'})
 				  eq $in{'user'}
