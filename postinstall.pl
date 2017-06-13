@@ -28,10 +28,13 @@ if (&foreign_installed("usermin")) {
 	my %uclang;
 	&read_file("$usermin::config{'usermin_dir'}/custom-lang", \%uclang);
 	if (!$uclang{'session_postfix'}) {
-		my $url = &virtual_server::get_virtualmin_url()."/".
-			  $module_name."/usermin.cgi";
+		my %miniserv;
+		&get_miniserv_config(\%miniserv);
+		my $port = $miniserv{'port'};
 		$uclang{'session_postfix'} =
-		  "<center><a href=$url>$text{'login_forgot2'}</a></center>";
+		   "<center><a href=/$module_name/usermin.cgi ".
+		   "onclick='javascript:event.target.port=$port'>".
+		   "$text{'login_forgot2'}</a></center>";
 		&write_file("$usermin::config{'usermin_dir'}/custom-lang",
 			    \%uclang);
 		}
