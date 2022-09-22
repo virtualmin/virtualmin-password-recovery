@@ -19,18 +19,19 @@ my $err = &check_rate_limit();
 $err && &error_and_exit($err);
 
 # Check if this is a callback from an email
-if ($in{'id'} =~ /^[a-z0-9]+$/i) {
+if ($in{'id'} && $in{'id'} =~ /^[a-z0-9]+$/i) {
 	my %link;
 	&read_file("$recovery_link_dir/$in{'id'}", \%link);
-	$link{'id'} eq $in{'id'} || &error_and_exit($text{'email_eid'});
+	($in{'id'} && $link{'id'} && $link{'id'} eq $in{'id'}) ||
+		&error_and_exit(&text('email_eid', $in{'id'}));
 	%in = %link;
 	&unlink_file("$recovery_link_dir/$in{'id'}");
 	if (time() - $link{'time'} > 86400) {
 		&error_and_exit($text{'email_etime'});
 		}
 	}
-elsif ($in{'id'}) {
-	&error($text{'email_eid'});
+elsif ($in{'id'} =~ /\S+/) {
+	&error(&text('email_eid', $in{'id'}));
 	}
 
 # Check for Virtualmin or Cloudmin
@@ -151,7 +152,7 @@ if ($user) {
 		my $rfile = "$user->{'home'}/.usermin/changepass/recovery";
 		$user->{'recovery'} = &virtual_server::write_as_mailbox_user(
 			$user, sub { &read_file_contents($rfile) });
-		$user->{'recovert'} =~ s/\r|\n//g;
+		$user->{'recovert'} =~ s/\r|\n//g if ($user->{'recovert'});
 		}
 	$user->{'recovery'} || &error_and_exit($text{'email_euserrandom'});
 	}
