@@ -25,6 +25,7 @@ index_emailheader=Pertsonalizatu berreskuratzeko posta elektronikoa
 index_emaildesc=Inprimaki hau pasahitza berreskuratzeko mezu elektroniko pertsonalizatua sartzeko erabil daiteke. Mezuan <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> eta gehiago erabil daitezke.
 index_emaildef=Bidali mezu elektroniko lehenetsia
 index_emailset=Bidali beheko mezua ..
+
 email_title=Pasahitza berreskuratzea
 email_einput=Ez da administrazioaren erabiltzaile izenik edo domeinurik idatzi
 email_edom=Ez da zure erabiltzaile izena edo domeinua betetzen dituen zerbitzari birtualik aurkitu
@@ -52,7 +53,7 @@ email_edompass=$1 saioa hasteko zerbitzari birtualaren pasahitza ezin da berresk
 email_eownerpass=$1 saioa hasteko zure sistemaren jabearen pasahitza ezin da berreskuratu Cloudmin-ek gordetzen ez duenez. Mesedez, jarri harremanetan sistemako administratzailea pasahitza berrezartzeko.
 email_euserpass=$1 saioa hasteko Usermin pasahitza ezin da berreskuratu Virtualmin-ek gordetzen ez duenez. Mesedez, jarri harremanetan sistemako administratzailea pasahitza berrezartzeko.
 email_return=Itzuli <a href='$1'>hasierako formularioa</a> pasahitz berria erabiltzeko.
-email_eid=Mezu ID baliogabea!
+email_eid=Mezu ID baliogabea : $1
 email_esid=Huts egin du ausazko IDa sortzen!
 email_msglink=Posta elektronikoa jasotzen ari zara $2 $3 tik Virtualmin zerbitzari birtuala pasahitza berreskuratzeko eskaera dela eta. Berreskuratzeari ekiteko, egin klik esteka honetan: \n $1 \n\nEz baduzu eskaera hau egin, ez ahaztu mezu elektroniko hau.
 email_msglink2=Posta elektronikoa jasotzen ari zara $2 tik Cloudmin sistemaren jabeari pasahitza berreskuratzeko eskaera dela eta. Berreskuratzeari ekiteko, egin klik esteka honetan: \n $1 \n\nEz baduzu eskaera hau egin, ez ahaztu mezu elektroniko hau.
@@ -60,11 +61,14 @@ email_msglink3=Posta elektronikoa jasotzen ari zara $2 tik Usermin kontuarentzak
 email_donelink=Pasahitza berrezartzeko, klik egin behar duzun esteka duen helbide elektronikoa bidali da $1 helbidera.
 email_linkfor=$1 esteka
 email_etime=Berreskuratzeko posta elektronikoa egun bat baino gehiago da!
+
 log_email=$1 - $2 zerbitzari birtualaren pasahitza bidali da
 log_email2=$1 eta $2 sistemaren jabeari pasahitza bidali zaio.
 log_save=Berreskuratzeko posta elektronikoa eguneratua
+
 save_err=Ezin izan da mezu elektronikoa gorde
 save_eanon=Ez dago eskuragarri autentikatu gabeko erabiltzaileentzat!
 save_eemail=Ez da mezu bat sartu
+
 login_forgot=Webmin pasahitza ahaztu al zaizu?
 login_forgot2=Erabiltzailearen pasahitza ahaztu al zaizu?

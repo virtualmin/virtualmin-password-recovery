@@ -18,6 +18,7 @@ index_emailheader=Personnaliser l'email de récupération
 index_emaildesc=Ce formulaire permet d'envoyer un email personnalisé pour la récupération du mot de passe. Les variables <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> et d'autres peuvent être utilisées dans le message.
 index_emaildef=Envoyer le message par défaut
 index_emailset=Envoyer le message ci-dessous..
+
 email_title=Récupération du mot de passe
 email_einput=Aucun nom d'utilisateur administrateur ou de nom de domaine n'a été saisi
 email_edom=Aucun serveur virtuel correspondant à votre nom d'utilisateur ou domaine n'a été trouvé
@@ -36,10 +37,13 @@ email_done2=L'identifiant et le mot de passe du compte propriétaire du système
 email_failed=La récupération du mot de passe n'a pas abouti
 email_eproduct=Ni Virtualmin ni Cloudmin ne sont installés, donc aucun compte pour la récupération du mot de passe n'est disponible
 email_edompass=Le mot de passe de votre serveur virtuel pour l'identifiant $1 ne peut pas être récupéré car il n'est pas stocké par Virtualmin. Merci de contacter votre administrateur système pour qu'il réinitialise votre mot de passe.
+
 log_email=Mot de passe pour le serveur virtuel $1 envoyé à $2.
 log_email2=Mot de passe pour le propriétaire du système $1 envoyé à $2.
 log_save=Email de récupération mis à jour
+
 save_err=Sauvegarde du message email impossible
 save_eanon=Non accessible aux utilisateurs non identifiés !
 save_eemail=Aucun message saisi
+
 login_forgot=Oublié votre mot de passe Virtualmin ?

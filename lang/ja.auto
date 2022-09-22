@@ -25,6 +25,7 @@ index_emailheader=回復用メールをカスタマイズ
 index_emaildesc=このフォームを使用して、パスワードの回復のために送信するカスタム電子メールメッセージを入力できます。置換<tt>$DOM</tt> 、 <tt>$USER</tt> 、 <tt>$PASS</tt> 、 <tt>$CLIENTIP</tt> 、 <tt>$USERAGENT</tt>などをメッセージで使用できます。
 index_emaildef=デフォルトのメールメッセージを送信
 index_emailset=以下にメッセージを送信してください。
+
 email_title=パスワードの回復
 email_einput=管理ユーザー名またはドメイン名が入力されていません
 email_edom=ユーザー名またはドメインに一致する仮想サーバーが見つかりませんでした
@@ -52,7 +53,7 @@ email_edompass=ログイン $1の仮想サーバーパスワードはVirtualmin�
 email_eownerpass=ログイン $1のシステム所有者パスワードはCloudminによって保存されていないため、回復できません。システム管理者に連絡して、パスワードをリセットしてください。
 email_euserpass=ログイン $1のUserminパスワードはVirtualminによって保存されていないため、回復できません。システム管理者に連絡して、パスワードをリセットしてください。
 email_return=<a href='$1'>ログインフォーム</a>に戻って、新しいパスワードを使用します。
-email_eid=無効なメッセージID！
+email_eid=無効なメッセージ ID  : $1
 email_esid=ランダムIDの生成に失敗しました！
 email_msglink=このメールは、 $3からVirtualmin仮想サーバー $2のパスワード回復リクエストがあったため受信しています。リカバリを続行するには、次のリンクをクリックしてください：\n $1 \n\nこのリクエストを行わなかった場合は、このメールを無視してください。
 email_msglink2=このメールは、 $3からのCloudminシステムオーナー $2のパスワード回復リクエストがあったため受信しています。リカバリを続行するには、次のリンクをクリックしてください：\n $1 \n\nこのリクエストを行わなかった場合は、このメールを無視してください。
@@ -60,11 +61,14 @@ email_msglink3=このメールは、 $3からのUserminアカウント $2のパ�
 email_donelink=パスワードをリセットするにはクリックする必要のあるリンクを含むメールが、再設定用アドレス $1に送信されました。
 email_linkfor=$1のリンク
 email_etime=再設定メールが1日以上経過している！
+
 log_email=仮想サーバー $1のパスワードを $2に送信しました。
 log_email2=システム所有者 $1から $2のパスワードを送信しました。
 log_save=更新メール
+
 save_err=メールメッセージを保存できませんでした
 save_eanon=認証されていないユーザーは利用できません！
 save_eemail=メッセージが入力されていません
+
 login_forgot=Webminパスワードをお忘れですか？
 login_forgot2=Userminパスワードをお忘れですか？

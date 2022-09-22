@@ -25,6 +25,7 @@ index_emailheader=Testreszabhatja a helyreállítási e-mailt
 index_emaildesc=Ez az űrlap felhasználható egyéni e-mail üzenet bevitelére, amelyet el kell küldeni a jelszó helyreállítása érdekében. A <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> és a további <tt>$USERAGENT</tt> felhasználhatók az üzenetben.
 index_emaildef=Alapértelmezett e-mail üzenet küldése
 index_emailset=Küldjön üzenetet az alábbi ..
+
 email_title=Jelszó helyreállítása
 email_einput=Nincs megadva adminisztrációs felhasználónév vagy domain név
 email_edom=Nem található a felhasználónevével vagy domainjével megegyező virtuális szerver
@@ -52,7 +53,7 @@ email_edompass=A (z) $1 bejelentkezéshez tartozó virtuális szerver jelszavát
 email_eownerpass=A rendszergazda jelszavát a (z) $1 bejelentkezéshez nem lehet helyreállítani, mivel azt a Cloudmin nem tárolta. Kérjük, lépjen kapcsolatba a rendszergazdával a jelszó visszaállításához.
 email_euserpass=A (z) $1 bejelentkezéshez tartozó Usermin jelszavát nem lehet helyreállítani, mivel azt a Virtualmin nem tárolta. Kérjük, lépjen kapcsolatba a rendszergazdával a jelszó visszaállításához.
 email_return=Az új jelszó használatához térjen vissza a <a href='$1'>bejelentkezési űrlaphoz</a>.
-email_eid=Érvénytelen üzenet azonosítója!
+email_eid=Érvénytelen üzenetazonosító : $1
 email_esid=Nem sikerült létrehozni véletlenszerű azonosítót!
 email_msglink=Ezt az e-mailt a (z) $3 Virtualmin virtuális szerveréhez tartozó jelszó-visszaállítási kérelem miatt kapja meg. A helyreállítás folytatásához kattintson erre a linkre: \n $1 \n\nHa nem tette ezt a kérést, kérjük, hagyja figyelmen kívül ezt az e-mailt.
 email_msglink2=Ezt az e-mailt a (z) $3 felhőalapú Cloudmin rendszertulajdonosának jelszó-visszaállítási kérelem miatt kapta meg. A helyreállítás folytatásához kattintson erre a linkre: \n $1 \n\nHa nem tette ezt a kérést, kérjük, hagyja figyelmen kívül ezt az e-mailt.
@@ -60,11 +61,14 @@ email_msglink3=Ezt az e-mailt a (z) $3 felhasználói fiókjának jelszó helyre
 email_donelink=A (1) helyreállítási címre e-mailt küldtünk, amely tartalmaz egy linket, amelyre kattintva kell megadni a jelszavát.
 email_linkfor=Link a $1 -hez
 email_etime=A helyreállítási e-mail már régebbi!
+
 log_email=Elküldött jelszó a $1 - $2 virtuális szerverhez.
 log_email2=Elküldött jelszó a $1 - $2 rendszertulajdonos számára.
 log_save=Frissített helyreállítási e-mail
+
 save_err=Az e-mail mentése nem sikerült
 save_eanon=Nem hitelesített felhasználók számára nem elérhető!
 save_eemail=Nincs megadva üzenet
+
 login_forgot=Elfelejtette Webmin jelszavát?
 login_forgot2=Elfelejtette felhasználói jelszavát?

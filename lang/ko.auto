@@ -25,6 +25,7 @@ index_emailheader=복구 이메일 사용자 정의
 index_emaildesc=이 양식은 비밀번호 복구를 위해 보낼 사용자 정의 이메일 메시지를 입력하는 데 사용할 수 있습니다. 메시지에서 <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> 등의 <tt>$CLIENTIP</tt> 사용할 수 있습니다.
 index_emaildef=기본 이메일 메시지 보내기
 index_emailset=아래에 메시지 보내기 ..
+
 email_title=비밀번호 복구
 email_einput=관리 사용자 이름 또는 도메인 이름이 입력되지 않았습니다
 email_edom=사용자 이름 또는 도메인과 일치하는 가상 서버를 찾을 수 없습니다
@@ -52,7 +53,7 @@ email_edompass=로그인 $1 의 가상 서버 비밀번호는 Virtualmin에 의�
 email_eownerpass=로그인 $1 에 대한 시스템 소유자 비밀번호는 Cloudmin에 의해 저장되지 않았으므로 복구 할 수 없습니다. 암호를 재설정하려면 시스템 관리자에게 문의하십시오.
 email_euserpass=로그인 $1 에 대한 Usermin 비밀번호는 Virtualmin에 의해 저장되지 않았으므로 복구 할 수 없습니다. 암호를 재설정하려면 시스템 관리자에게 문의하십시오.
 email_return=새 비밀번호를 사용하려면 <a href='$1'>로그인 양식</a>으로 돌아가십시오.
-email_eid=잘못된 메시지 ID!
+email_eid=잘못된 메시지 ID : $1
 email_esid=임의의 ID를 생성하지 못했습니다!
 email_msglink=$3 의 Virtualmin 가상 서버 $2 에 대한 비밀번호 복구 요청으로 인해이 이메일을 받고 있습니다. 복구를 진행하려면이 링크를 클릭하십시오 : \n $1 \n\n이 요청을하지 않았다면이 이메일을 무시하십시오.
 email_msglink2=$3 의 Cloudmin 시스템 소유자 $2 에 대한 비밀번호 복구 요청으로 인해이 이메일을 받고 있습니다. 복구를 진행하려면이 링크를 클릭하십시오 : \n $1 \n\n이 요청을하지 않았다면이 이메일을 무시하십시오.
@@ -60,11 +61,14 @@ email_msglink3=$3 의 Usermin 계정 $2 에 대한 비밀번호 복구 요청으
 email_donelink=비밀번호를 재설정하려면 클릭해야하는 링크가 포함 된 복구 주소 $1 (으)로 이메일이 발송되었습니다.
 email_linkfor=$1 에 대한 링크
 email_etime=복구 이메일이 1 일 이상 지났습니다!
+
 log_email=가상 서버 $1 에서 $2 의 암호를 보냈습니다.
 log_email2=시스템 소유자 $1 에서 $2 의 암호를 보냈습니다.
 log_save=업데이트 된 복구 이메일
+
 save_err=이메일 메시지를 저장하지 못했습니다
 save_eanon=인증되지 않은 사용자는 사용할 수 없습니다!
 save_eemail=메시지가 입력되지 않았습니다
+
 login_forgot=Webmin 비밀번호를 잊어 버리셨습니까?
 login_forgot2=Usermin 비밀번호를 잊었습니까?

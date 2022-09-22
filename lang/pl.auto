@@ -25,6 +25,7 @@ index_emailheader=Dostosuj pomocniczy adres e-mail
 index_emaildesc=Tego formularza można użyć do wprowadzenia niestandardowej wiadomości e-mail, która zostanie wysłana w celu odzyskania hasła. W wiadomości można użyć <tt>$USERAGENT</tt> <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> i innych.
 index_emaildef=Wyślij domyślną wiadomość e-mail
 index_emailset=Wyślij wiadomość poniżej ..
+
 email_title=Odzyskiwanie hasła
 email_einput=Nie wprowadzono administracyjnej nazwy użytkownika ani nazwy domeny
 email_edom=Nie znaleziono serwera wirtualnego pasującego do Twojej nazwy użytkownika lub domeny
@@ -52,7 +53,7 @@ email_edompass=Nie można odzyskać hasła do wirtualnego serwera dla loginu $1,
 email_eownerpass=Nie można odzyskać hasła właściciela systemu do logowania $1, ponieważ nie zostało zapisane przez Cloudmin. Skontaktuj się z administratorem systemu, aby zresetować hasło.
 email_euserpass=Twoje hasło użytkownika do logowania $1 nie może zostać odzyskane, ponieważ nie zostało zapisane przez Virtualmin. Skontaktuj się z administratorem systemu, aby zresetować hasło.
 email_return=Wróć do <a href='$1'>formularza logowania</a>, aby użyć nowego hasła.
-email_eid=Nieprawidłowy identyfikator wiadomości!
+email_eid=Nieprawidłowy identyfikator wiadomości : $1 
 email_esid=Nie udało się wygenerować losowego identyfikatora!
 email_msglink=Otrzymujesz ten e-mail z powodu żądania odzyskania hasła do wirtualnego serwera Virtualmin $2 z $3. Aby kontynuować odzyskiwanie, kliknij ten link: \n $1 \n\nJeśli nie wysłałeś tej prośby, zignoruj tę wiadomość e-mail.
 email_msglink2=Otrzymujesz tego e-maila z powodu prośby o odzyskanie hasła dla właściciela systemu Cloudmin $2 z $3. Aby kontynuować odzyskiwanie, kliknij ten link: \n $1 \n\nJeśli nie wysłałeś tej prośby, zignoruj tę wiadomość e-mail.
@@ -60,11 +61,14 @@ email_msglink3=Otrzymujesz tego e-maila z powodu prośby o odzyskanie hasła do 
 email_donelink=Na Twój adres pomocniczy $1 wysłano wiadomość e-mail zawierającą link, który należy kliknąć, aby zresetować hasło.
 email_linkfor=Link do $1 
 email_etime=Pomocniczy e-mail ma więcej niż 1 dzień!
+
 log_email=Wysłano hasło do serwera wirtualnego $1 do $2.
 log_email2=Wysłano hasło właściciela systemu $1 do $2.
 log_save=Zaktualizowany e-mail odzyskiwania
+
 save_err=Nie udało się zapisać wiadomości e-mail
 save_eanon=Niedostępne dla nieuwierzytelnionych użytkowników!
 save_eemail=Nie wprowadzono żadnej wiadomości
+
 login_forgot=Nie pamiętasz hasła do Webmina?
 login_forgot2=Zapomniałeś hasła do Usermin?

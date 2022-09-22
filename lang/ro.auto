@@ -25,6 +25,7 @@ index_emailheader=Personalizați e-mail de recuperare
 index_emaildesc=Acest formular poate fi utilizat pentru a introduce un mesaj personalizat de e-mail care va fi trimis pentru recuperarea parolei. În cadrul mesajului pot fi utilizate substanțele <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> și altele.
 index_emaildef=Trimiteți un mesaj de e-mail implicit
 index_emailset=Trimite mai jos mesajul ..
+
 email_title=Recuperarea parolei
 email_einput=Nu a fost introdus niciun nume de utilizator de administrare sau nume de domeniu
 email_edom=Nu a fost găsit niciun server virtual care să se potrivească cu numele dvs. de utilizator sau domeniu
@@ -52,7 +53,7 @@ email_edompass=Parola serverului virtual pentru conectare $1 nu poate fi recuper
 email_eownerpass=Parola de proprietar a sistemului de conectare $1 nu poate fi recuperată deoarece nu a fost stocată de Cloudmin. Vă rugăm să contactați administratorul de sistem pentru a reseta parola.
 email_euserpass=Parola dvs. Usermin pentru conectare $1 nu poate fi recuperată deoarece nu a fost stocată de Virtualmin. Vă rugăm să contactați administratorul de sistem pentru a reseta parola.
 email_return=Reveniți la <a href='$1'>formularul de autentificare</a> pentru a utiliza noua parolă.
-email_eid=ID de mesaj nevalid!
+email_eid=ID mesaj nevalid : $1
 email_esid=Nu a reușit să genereze un ID aleatoriu!
 email_msglink=Primești acest e-mail din cauza unei solicitări de recuperare a parolei pentru serverul virtual Virtualmin $2 de la $3. Pentru a continua recuperarea, faceți clic pe acest link: \n $1 \n\nDacă nu ați făcut această solicitare, ignorați acest e-mail.
 email_msglink2=Primești acest e-mail din cauza unei solicitări de recuperare a parolei pentru proprietarul sistemului Cloudmin $2 de la $3. Pentru a continua recuperarea, faceți clic pe acest link: \n $1 \n\nDacă nu ați făcut această solicitare, ignorați acest e-mail.
@@ -60,11 +61,14 @@ email_msglink3=Primești acest e-mail din cauza unei solicitări de recuperare a
 email_donelink=E-mailul a fost trimis la adresa dvs. de recuperare $1 conținând un link pe care trebuie să faceți clic pentru a reseta parola.
 email_linkfor=Link pentru $1 
 email_etime=Recuperarea e-mailului are peste 1 zi!
+
 log_email=Parola trimisă pentru serverul virtual $1 la $2.
 log_email2=Parola trimisă proprietarului de sistem $1 la $2.
 log_save=E-mail de recuperare actualizat
+
 save_err=Nu a reușit să salvați mesajul de e-mail
 save_eanon=Nu este disponibil pentru utilizatorii neautentificați!
 save_eemail=Nu a fost introdus niciun mesaj
+
 login_forgot=Ați uitat parola Webmin?
 login_forgot2=Ai uitat parola Usermin?

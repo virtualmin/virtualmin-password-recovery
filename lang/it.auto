@@ -5,6 +5,7 @@ index_mode=Metodo di recupero
 index_mode2=Email password originale
 index_mode1=Email password temporanea casuale
 index_submit=Recupera la password
+
 email_edom4=Non è stato trovato nessun nome utente o indirizzo e-mail corrispondente
 email_edomrandom=L'invio tramite e-mail di una password generata casualmente non è possibile se non è impostato alcun indirizzo di contatto esterno per il dominio
 email_euserrandom=Il recupero della password non è possibile a meno che non sia stato impostato un indirizzo di recupero per il tuo account
@@ -14,7 +15,7 @@ email_done3=Il login e la password per il tuo account Usermin $2 sono stati invi
 email_eownerpass=La password del proprietario del sistema per l'accesso $1 non può essere recuperata poiché non è stata memorizzata da Cloudmin. Contatta l'amministratore di sistema per reimpostare la password.
 email_euserpass=La tua password Usermin per l'accesso $1 non può essere recuperata poiché non è stata memorizzata da Virtualmin. Contatta l'amministratore di sistema per reimpostare la password.
 email_return=Torna al <a href='$1'>modulo di accesso</a> per utilizzare la tua nuova password.
-email_eid=ID messaggio non valido!
+email_eid=ID messaggio non valido : $1
 email_esid=Impossibile generare un ID casuale!
 email_msglink=Ricevi questa e-mail a causa di una richiesta di recupero della password per il server virtuale Virtualmin $2 da $3. Per procedere con il recupero, fai clic su questo link: \n $1 \n\nSe non hai effettuato questa richiesta, ignora questa email.
 email_msglink2=Ricevi questa email a causa di una richiesta di recupero della password per il proprietario del sistema Cloudmin $2 da $3. Per procedere con il recupero, fai clic su questo link: \n $1 \n\nSe non hai effettuato questa richiesta, ignora questa email.
@@ -22,4 +23,5 @@ email_msglink3=Ricevi questa email a causa di una richiesta di recupero della pa
 email_donelink=È stata inviata un'e-mail al tuo indirizzo di recupero $1 contenente un collegamento su cui è necessario fare clic per reimpostare la password.
 email_linkfor=Link per $1 
 email_etime=L'e-mail di recupero ha più di 1 giorno!
+
 login_forgot2=Hai dimenticato la password di Usermin?

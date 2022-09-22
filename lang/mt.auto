@@ -25,6 +25,7 @@ index_emailheader=Ippersonalizza Email Irkupru
 index_emaildesc=Din il-formola tista 'tintuża biex tidħol messaġġ elettroniku apposta biex tintbagħat għall-irkupru tal-password. Is-sostizzjonijiet <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> u aktar jistgħu jintużaw f'dan il-messaġġ.
 index_emaildef=Ibgħat messaġġ elettroniku awtomatiku
 index_emailset=Ibgħat messaġġ hawn taħt ..
+
 email_title=Tirkupra l-Password
 email_einput=L-ebda isem tal-utent tal-amministrazzjoni jew isem tad-dominju ma ġie mdaħħal
 email_edom=Ma nstab l-ebda server virtwali li jaqbel mal-username jew id-dominju tiegħek
@@ -52,7 +53,7 @@ email_edompass=Il-password tas-server virtwali tiegħek għall-login $1 ma tista
 email_eownerpass=Il-password tas-sid tas-sistema tiegħek għall-login $1 ma tistax tiġi rkuprata peress li ma ġietx maħżuna minn Cloudmin. Jekk jogħġbok ikkuntattja lill-amministratur tas-sistema tiegħek biex terġa 'tissettja l-password.
 email_euserpass=Il-password tal-Usermin tiegħek għall-login $1 ma tistax tiġi rkuprata peress li ma ġietx maħżuna minn Virtualmin. Jekk jogħġbok ikkuntattja lill-amministratur tas-sistema tiegħek biex terġa 'tissettja l-password.
 email_return=Irritorna għall-<a href='$1'>formola ta 'login</a> biex tuża l-password il-ġdid tiegħek.
-email_eid=ID tal-messaġġ invalidu!
+email_eid=ID tal-messaġġ mhux validu : $1
 email_esid=Naqset milli tiġġenera ID bl-addoċċ!
 email_msglink=Int qed tirċievi dan l-email minħabba talba għall-irkupru tal-password għas-server virtwali Virtualmin $2 minn $3. Biex tipproċedi bl-irkupru, ikklikkja fuq din il-link: \n $1 \n\nJekk ma għamiltx din it-talba, jekk jogħġbok injora dan l-email.
 email_msglink2=Int qed tirċievi dan l-email minħabba talba għall-irkupru tal-password għas-sid tas-sistema Cloudmin $2 minn $3. Biex tipproċedi bl-irkupru, ikklikkja fuq din il-link: \n $1 \n\nJekk ma għamiltx din it-talba, jekk jogħġbok injora dan l-email.
@@ -60,11 +61,14 @@ email_msglink3=Int qed tirċievi dan l-email minħabba talba għall-irkupru tal-
 email_donelink=Intbagħtet email lill-indirizz tal-irkupru tiegħek $1 li fih rabta li trid tkun ikklikkjata fuq biex terġa 'tinkiseb il-password tiegħek.
 email_linkfor=Rabta Għal $1 
 email_etime=L-irkupru tal-email għandu aktar minn ġurnata!
+
 log_email=Intbagħtet password għas-server virtwali $1 sa $2.
 log_email2=Intbagħtet password għas-sid tas-sistema $1 sa $2.
 log_save=Aġġornat email ta ’rkupru
+
 save_err=Ma rnexxielux isalva messaġġ bl-email
 save_eanon=Mhux disponibbli għal utenti mhux awtentikati!
 save_eemail=Ma daħal l-ebda messaġġ
+
 login_forgot=Insejt il-password tal-Webmin tiegħek?
 login_forgot2=Insejt il-password tal-Usermin tiegħek?

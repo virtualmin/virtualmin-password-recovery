@@ -25,6 +25,7 @@ index_emailheader=Kurtarma E-postasını Özelleştirme
 index_emaildesc=Bu form, şifre kurtarma için gönderilecek özel bir e-posta mesajı girmek için kullanılabilir. İletide <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> ve daha fazlası kullanılabilir.
 index_emaildef=Varsayılan e-posta mesajını gönder
 index_emailset=Aşağıya mesaj gönder ..
+
 email_title=Şifreyi Kurtarma
 email_einput=Yönetici kullanıcı adı veya alan adı girilmedi
 email_edom=Kullanıcı adınız veya alan adınızla eşleşen hiçbir sanal sunucu bulunamadı
@@ -52,7 +53,7 @@ email_edompass=$1 girişi için sanal sunucu şifreniz Virtualmin tarafından sa
 email_eownerpass=$1 girişi için sistem sahibi şifreniz Cloudmin tarafından saklanmadığından kurtarılamıyor. Parolayı sıfırlamak için lütfen sistem yöneticinize başvurun.
 email_euserpass=$1 girişi için Usermin şifreniz Virtualmin tarafından saklanmadığından kurtarılamıyor. Parolayı sıfırlamak için lütfen sistem yöneticinize başvurun.
 email_return=Yeni şifrenizi kullanmak için <a href='$1'>giriş formuna</a> dönün.
-email_eid=Geçersiz mesaj kimliği!
+email_eid=Geçersiz ileti kimliği : $1
 email_esid=Rasgele kimlik oluşturulamadı!
 email_msglink=Bu e-postayı, $3 'ten $2 Virtualmin sanal sunucusu için şifre kurtarma isteği nedeniyle alıyorsunuz. Kurtarma işlemine devam etmek için şu bağlantıyı tıklayın: \n $1 \n\nBu isteği siz yapmadıysanız, lütfen bu e-postayı dikkate almayın.
 email_msglink2=Bu e-postayı, $3 'ten $2 Cloudmin sistem sahibi için şifre kurtarma isteği nedeniyle alıyorsunuz. Kurtarma işlemine devam etmek için şu bağlantıyı tıklayın: \n $1 \n\nBu isteği siz yapmadıysanız, lütfen bu e-postayı dikkate almayın.
@@ -60,11 +61,14 @@ email_msglink3=Bu e-postayı, $3 adresinden $2 Usermin hesabı için şifre kurt
 email_donelink=$1 kurtarma adresinize, şifrenizi sıfırlamak için tıklanması gereken bir bağlantı içeren e-posta gönderildi.
 email_linkfor=$1 İçin Bağlantı
 email_etime=Kurtarma e-postası 1 günden daha eski!
+
 log_email=$1 ila $2 sanal sunucusu için şifre gönderildi.
 log_email2=$1 - $2 sistem sahibi için şifre gönderildi.
 log_save=Güncellenmiş kurtarma e-postası
+
 save_err=E-posta mesajı kaydedilemedi
 save_eanon=Kimliği doğrulanmamış kullanıcılar tarafından kullanılamaz!
 save_eemail=Mesaj girilmedi
+
 login_forgot=Webmin şifrenizi mi unuttunuz?
 login_forgot2=Usermin şifrenizi mi unuttunuz?

@@ -25,6 +25,7 @@ index_emailheader=Personalització del correu electrònic de recuperació
 index_emaildesc=Aquest formulari es pot utilitzar per introduir un missatge de correu electrònic personalitzat que s’ha d’enviar per a la recuperació de contrasenya. Al missatge es poden utilitzar les substitucions <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> i molt més.
 index_emaildef=Envia un missatge de correu electrònic per defecte
 index_emailset=Envia el missatge a continuació ..
+
 email_title=Recuperació de la contrasenya
 email_einput=No s'ha introduït cap nom d'usuari ni nom de domini d'administració
 email_edom=No s'ha trobat cap servidor virtual que coincideixi amb el seu nom d'usuari o domini
@@ -52,7 +53,7 @@ email_edompass=La vostra contrasenya del servidor virtual per a l’inici de ses
 email_eownerpass=La contrasenya del propietari del sistema per iniciar la sessió $1 no es pot recuperar ja que Cloudmin no ha estat guardada. Poseu-vos en contacte amb l'administrador del sistema per restablir la contrasenya.
 email_euserpass=La vostra contrasenya Usermin per a l’inici de sessió $1 no es pot recuperar ja que no ha estat desada per Virtualmin. Poseu-vos en contacte amb l'administrador del sistema per restablir la contrasenya.
 email_return=Torneu al <a href='$1'>formulari d'inici de sessió</a> per utilitzar la vostra nova contrasenya.
-email_eid=L'ID del missatge no és vàlid.
+email_eid=Identificador de missatge no vàlid : $1
 email_esid=No s'ha generat la identificació aleatòria.
 email_msglink=Esteu rebent aquest correu electrònic a causa d'una sol·licitud de recuperació de contrasenya per al servidor virtual de Virtualmin $2 des de $3. Per continuar amb la recuperació, feu clic en aquest enllaç: \n $1 \n\nSi no heu realitzat aquesta sol·licitud, ignora aquest correu electrònic.
 email_msglink2=Esteu rebent aquest correu electrònic a causa d'una sol·licitud de recuperació de contrasenya del propietari del sistema Cloudmin $2 des del $3. Per continuar amb la recuperació, feu clic en aquest enllaç: \n $1 \n\nSi no heu realitzat aquesta sol·licitud, ignora aquest correu electrònic.
@@ -60,11 +61,14 @@ email_msglink3=Esteu rebent aquest correu electrònic a causa d'una sol·licitud
 email_donelink=S'ha enviat un correu electrònic a la vostra adreça de recuperació $1 que conté un enllaç al qual s'ha de fer clic per restablir la contrasenya.
 email_linkfor=Enllaç per a $1 
 email_etime=El correu electrònic de recuperació té més d’un dia!
+
 log_email=S'ha enviat la contrasenya del servidor virtual $1 a $2.
 log_email2=S'ha enviat la contrasenya al propietari del sistema $1 a $2.
 log_save=Correu electrònic de recuperació actualitzat
+
 save_err=No s'ha pogut desar el missatge de correu electrònic
 save_eanon=No disponible per a usuaris no autentificats.
 save_eemail=No s'ha introduït cap missatge
+
 login_forgot=Heu oblidat la contrasenya de Webmin?
 login_forgot2=Heu oblidat la vostra contrasenya d'Usuari

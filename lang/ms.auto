@@ -25,6 +25,7 @@ index_emailheader=Sesuaikan E-mel Pemulihan
 index_emaildesc=Borang ini dapat digunakan untuk memasukkan pesan e-mel khusus yang akan dikirim untuk pemulihan kata laluan. Substitusi <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> dan banyak lagi boleh digunakan dalam mesej.
 index_emaildef=Hantar mesej e-mel lalai
 index_emailset=Hantar mesej di bawah ..
+
 email_title=Memulihkan Kata Laluan
 email_einput=Tidak ada nama pengguna pentadbiran atau nama domain yang dimasukkan
 email_edom=Tidak dijumpai pelayan maya yang sepadan dengan nama pengguna atau domain anda
@@ -52,7 +53,7 @@ email_edompass=Kata laluan pelayan maya anda untuk log masuk $1 tidak dapat dipu
 email_eownerpass=Kata laluan pemilik sistem anda untuk log masuk $1 tidak dapat dipulihkan kerana belum disimpan oleh Cloudmin. Sila hubungi pentadbir sistem anda untuk menetapkan semula kata laluan.
 email_euserpass=Kata laluan Usermin anda untuk log masuk $1 tidak dapat dipulihkan kerana belum disimpan oleh Virtualmin. Sila hubungi pentadbir sistem anda untuk menetapkan semula kata laluan.
 email_return=Kembali ke <a href='$1'>borang log masuk</a> untuk menggunakan kata laluan baru anda.
-email_eid=ID mesej tidak sah!
+email_eid=ID mesej tidak sah  : $1 
 email_esid=Gagal menghasilkan ID rawak!
 email_msglink=Anda menerima e-mel ini kerana permintaan pemulihan kata laluan untuk pelayan maya Virtualmin $2 dari $3. Untuk meneruskan pemulihan, klik pada pautan ini: \n $1 \n\nJika anda tidak membuat permintaan ini, abaikan e-mel ini.
 email_msglink2=Anda menerima e-mel ini kerana permintaan pemulihan kata laluan untuk pemilik sistem Cloudmin $2 dari $3. Untuk meneruskan pemulihan, klik pada pautan ini: \n $1 \n\nJika anda tidak membuat permintaan ini, abaikan e-mel ini.
@@ -60,11 +61,14 @@ email_msglink3=Anda menerima e-mel ini kerana permintaan pemulihan kata laluan u
 email_donelink=E-mel telah dihantar ke alamat pemulihan anda $1 yang mengandungi pautan yang mesti diklik untuk menetapkan semula kata laluan anda.
 email_linkfor=Pautan Untuk $1 
 email_etime=E-mel pemulihan berusia lebih dari 1 hari!
+
 log_email=Kata laluan yang dihantar untuk pelayan maya $1 hingga $2.
 log_email2=Kata laluan yang dihantar untuk pemilik sistem $1 hingga $2.
 log_save=E-mel pemulihan yang dikemas kini
+
 save_err=Gagal menyimpan mesej e-mel
 save_eanon=Tidak tersedia untuk pengguna yang tidak disahkan!
 save_eemail=Tiada mesej yang dimasukkan
+
 login_forgot=Lupa kata laluan Webmin anda?
 login_forgot2=Lupa kata laluan Usermin anda?

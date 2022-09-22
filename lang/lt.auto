@@ -25,6 +25,7 @@ index_emailheader=Tinkinkite atkūrimo el. Paštą
 index_emaildesc=Ši forma gali būti naudojama įvedant pasirinktinį el. Pašto pranešimą, kuris bus siunčiamas slaptažodžio atkūrimui. Pranešime gali būti naudojami pakaitai <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> ir dar daugiau.
 index_emaildef=Siųsti numatytąjį el. Pašto pranešimą
 index_emailset=Siųsti pranešimą žemiau ..
+
 email_title=Slaptažodžio atkūrimas
 email_einput=Nebuvo įvestas administracijos vartotojo vardas ar domeno vardas
 email_edom=Nerasta nė vieno virtualiojo serverio, atitinkančio jūsų vartotojo vardą ar domeną
@@ -52,7 +53,7 @@ email_edompass=Jūsų prisijungimo $1 virtualaus serverio slaptažodžio negalim
 email_eownerpass=Jūsų sistemos savininko slaptažodžio, skirto prisijungimui $1, negalima atkurti, nes jo neišsaugojo „Cloudmin“. Norėdami iš naujo nustatyti slaptažodį, susisiekite su sistemos administratoriumi.
 email_euserpass=„Usermin“ slaptažodžio prisijungiant $1 negalima atkurti, nes jo neišsaugojo „Virtualmin“. Norėdami iš naujo nustatyti slaptažodį, susisiekite su sistemos administratoriumi.
 email_return=Norėdami naudoti naują slaptažodį, grįžkite į <a href='$1'>prisijungimo formą</a>.
-email_eid=Neteisingas pranešimo ID!
+email_eid=Neteisingas pranešimo ID : $1
 email_esid=Nepavyko sugeneruoti atsitiktinio ID!
 email_msglink=Gavote šį el. Laišką dėl užklausos atkurti „Virtualmin“ virtualųjį serverį $2 slaptažodį iš $3. Norėdami tęsti atkūrimą, spustelėkite šią nuorodą: \n $1 \n\nJei nepateikėte šios užklausos, nekreipkite dėmesio į šį el. Laišką.
 email_msglink2=Gavote šį el. Laišką dėl „Cloudmin“ sistemos savininko $2 slaptažodžio atkūrimo užklausos iš $3. Norėdami tęsti atkūrimą, spustelėkite šią nuorodą: \n $1 \n\nJei nepateikėte šios užklausos, nekreipkite dėmesio į šį el. Laišką.
@@ -60,11 +61,14 @@ email_msglink3=Gavote šį el. Laišką dėl „Usermin“ paskyros $2 slaptažo
 email_donelink=Laiškas buvo išsiųstas jūsų atkūrimo adresu $1, kuriame yra nuoroda, kurią reikia spustelėti norint iš naujo nustatyti slaptažodį.
 email_linkfor=$1 nuoroda
 email_etime=Atkūrimo el. Pašto adresas yra senesnis nei 1 diena!
+
 log_email=Išsiųstas slaptažodis virtualiam serveriui nuo $1 iki $2.
 log_email2=Išsiųstas slaptažodis sistemos savininkui nuo $1 iki $2.
 log_save=Atnaujintas atkūrimo el. Paštas
+
 save_err=Nepavyko išsaugoti el. Pašto pranešimo
 save_eanon=Negalima nepatvirtintiems vartotojams!
 save_eemail=Neįvestas pranešimas
+
 login_forgot=Pamiršote „Webmin“ slaptažodį?
 login_forgot2=Pamiršote „Usermin“ slaptažodį?

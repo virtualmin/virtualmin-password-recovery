@@ -25,6 +25,7 @@ index_emailheader=Personalizar correo electrónico de recuperación
 index_emaildesc=Este formulario se puede usar para ingresar un mensaje de correo electrónico personalizado que se enviará para la recuperación de la contraseña. Las subticiones <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> y más se pueden usar en el mensaje.
 index_emaildef=Enviar mensaje de correo electrónico predeterminado
 index_emailset=Enviar mensaje a continuación. ..
+
 email_title=Recuperando Contraseña
 email_einput=No se ingresó nombre de usuario o dominio de administración
 email_edom=No se encontró ningún servidor virtual que coincida con su nombre de usuario o dominio
@@ -52,7 +53,7 @@ email_edompass=La contraseña de su servidor virtual para iniciar sesión $1 no 
 email_eownerpass=La contraseña del propietario del sistema para iniciar sesión $1 no se puede recuperar ya que Cloudmin no la ha almacenado. Póngase en contacto con el administrador del sistema para restablecer la contraseña.
 email_euserpass=Su contraseña de Usermin para iniciar sesión $1 no se puede recuperar ya que Virtualmin no la ha almacenado. Póngase en contacto con el administrador del sistema para restablecer la contraseña.
 email_return=Regrese al <a href='$1'>formulario de inicio de sesión</a> para usar su nueva contraseña.
-email_eid=¡Mensaje de indentificación erroneo!
+email_eid=Id. de mensaje no válido : $1
 email_esid=¡Error al generar ID aleatoria!
 email_msglink=Está recibiendo este correo electrónico debido a una solicitud de recuperación de contraseña para el servidor virtual Virtualmin $2 de $3. Para continuar con la recuperación, haga clic en este enlace: \n $1 \n\n Si no realizó esta solicitud, ignore este correo electrónico.
 email_msglink2=Está recibiendo este correo electrónico debido a una solicitud de recuperación de contraseña para el propietario del sistema Cloudmin $2 de $3. Para continuar con la recuperación, haga clic en este enlace: \n $1 \n\n Si no realizó esta solicitud, ignore este correo electrónico.
@@ -60,11 +61,14 @@ email_msglink3=Está recibiendo este correo electrónico debido a una solicitud 
 email_donelink=Se ha enviado un correo electrónico a su dirección de recuperación $1 que contiene un enlace en el que se debe hacer clic para restablecer su contraseña.
 email_linkfor=Enlace para $1 
 email_etime=¡El correo electrónico de recuperación tiene más de 1 día!
+
 log_email=Contraseña enviada para el servidor virtual $1 a $2.
 log_email2=Contraseña enviada para el propietario del sistema $1 a $2.
 log_save=Correo electrónico de recuperación actualizado
+
 save_err=Error al guardar el mensaje de correo electrónico
 save_eanon=¡No disponible para usuarios no autenticados!
 save_eemail=Ningún mensaje ingresado
+
 login_forgot=¿Olvidó su contraseña de Webmin?
 login_forgot2=¿Olvidó su contraseña de Usermin?

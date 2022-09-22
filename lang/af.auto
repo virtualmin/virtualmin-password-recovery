@@ -25,6 +25,7 @@ index_emailheader=Pasmaak-e-posadres aan
 index_emaildesc=Hierdie vorm kan gebruik word om 'n pasgemaakte e-posboodskap in te voer wat gestuur moet word vir die herstel van wagwoorde. Die substasies <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> en meer kan in die boodskap gebruik word.
 index_emaildef=Stuur standaard e-posboodskap
 index_emailset=Stuur boodskap hieronder ..
+
 email_title=Herstel wagwoord
 email_einput=Geen administrasie-gebruikersnaam of domeinnaam is ingevoer nie
 email_edom=Geen virtuele bediener wat ooreenstem met u gebruikersnaam of domein, is gevind nie
@@ -52,7 +53,7 @@ email_edompass=U virtuele bedienerwagwoord vir aanmelding $1 kan nie herwin word
 email_eownerpass=U stelselwagwoordwagwoord vir aanmelding $1 kan nie herstel word nie, aangesien dit nie deur Cloudmin geberg is nie. Kontak u stelseladministrateur om die wagwoord terug te stel.
 email_euserpass=U Usermin-wagwoord vir aanmelding $1 kan nie herwin word nie, aangesien dit nie deur Virtualmin geberg is nie. Kontak u stelseladministrateur om die wagwoord terug te stel.
 email_return=Keer terug na die <a href='$1'>aanmeldvorm</a> om u nuwe wagwoord te gebruik.
-email_eid=Ongeldige boodskap-ID!
+email_eid=Ongeldige boodskap-ID : $1
 email_esid=Kon nie willekeurige ID genereer nie!
 email_msglink=U ontvang hierdie e-pos as gevolg van 'n versoek om wagwoordherstel vir die Virtualmin virtuele bediener $2 vanaf $3. Om voort te gaan met herstel, klik op hierdie skakel: \n $1 \n\nAs u nie hierdie versoek gerig het nie, ignoreer hierdie e-pos.
 email_msglink2=U ontvang hierdie e-pos as gevolg van 'n versoek om wagwoordherstel vir die Cloudmin-stelsel-eienaar $2 vanaf $3. Om voort te gaan met herstel, klik op hierdie skakel: \n $1 \n\nAs u nie hierdie versoek gerig het nie, ignoreer hierdie e-pos.
@@ -60,11 +61,14 @@ email_msglink3=U ontvang hierdie e-pos as gevolg van 'n versoek om wagwoordherst
 email_donelink=E-pos is gestuur na u hersteladres $1 met 'n skakel waarop geklik moet word om u wagwoord terug te stel.
 email_linkfor=Skakel vir $1 
 email_etime=Herstel-e-posadres is meer as 1 dag oud!
+
 log_email=Wagwoord vir die virtuele bediener $1 tot $2 gestuur.
 log_email2=Wagwoord vir stelselienaar $1 tot $2 gestuur.
 log_save=Opdatering-e-posadres opgedateer
+
 save_err=Kon nie die e-posboodskap stoor nie
 save_eanon=Nie beskikbaar vir ongemagtigde gebruikers nie!
 save_eemail=Geen boodskap is ingevoer nie
+
 login_forgot=U Webmin-wagwoord vergeet?
 login_forgot2=U Usermin-wagwoord vergeet?

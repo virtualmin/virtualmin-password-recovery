@@ -25,6 +25,7 @@ index_emailheader=Tilpas gendannelses-e-mail
 index_emaildesc=Denne formular kan bruges til at indtaste en tilpasset e-mail-meddelelse, der skal sendes til gendannelse af adgangskode. Substitutionerne <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> og mere kan bruges i meddelelsen.
 index_emaildef=Send standard e-mail-besked
 index_emailset=Send besked nedenfor ..
+
 email_title=Gendanner adgangskode
 email_einput=Intet administrationsbrugernavn eller domænenavn blev indtastet
 email_edom=Der blev ikke fundet nogen virtuel server, der matchede dit brugernavn eller dit domæne
@@ -52,7 +53,7 @@ email_edompass=Din virtuelle serveradgangskode til login $1 kan ikke gendannes, 
 email_eownerpass=Din systemejers adgangskode til login $1 kan ikke gendannes, da den ikke er gemt af Cloudmin. Kontakt din systemadministrator for at nulstille adgangskoden.
 email_euserpass=Din Usermin-adgangskode til login $1 kan ikke gendannes, da den ikke er blevet gemt af Virtualmin. Kontakt din systemadministrator for at nulstille adgangskoden.
 email_return=Gå tilbage til <a href='$1'>login formular</a> for at bruge din nye adgangskode.
-email_eid=Ugyldigt besked-ID!
+email_eid=Ugyldigt meddelelses-id : $1
 email_esid=Kunne ikke generere tilfældig id!
 email_msglink=Du modtager denne e-mail på grund af en anmodning om gendannelse af adgangskode til den virtuelle Virtualmin-server $2 fra $3. Klik på dette link for at fortsætte med gendannelse: \n $1 \n\nHvis du ikke har fremsat denne anmodning, skal du ignorere denne e-mail.
 email_msglink2=Du modtager denne e-mail på grund af en anmodning om gendannelse af adgangskode til Cloudmin-systemejer $2 fra $3. Klik på dette link for at fortsætte med gendannelse: \n $1 \n\nHvis du ikke har fremsat denne anmodning, skal du ignorere denne e-mail.
@@ -60,11 +61,14 @@ email_msglink3=Du modtager denne e-mail på grund af en anmodning om gendannelse
 email_donelink=Der er sendt e-mail til din gendannelsesadresse $1 indeholdende et link, der skal klikkes på for at nulstille din adgangskode.
 email_linkfor=Link til $1 
 email_etime=Gendannelses-e-mail er mere end 1 dag gammel!
+
 log_email=Sendt adgangskode til virtuel server $1 til $2.
 log_email2=Sendt adgangskode til systemejer $1 til $2.
 log_save=Opdateret gendannelses-e-mail
+
 save_err=Kunne ikke gemme e-mail-beskeden
 save_eanon=Ikke tilgængelig for ikke-godkendte brugere!
 save_eemail=Ingen indtastning indtastet
+
 login_forgot=Glemt din Webmin adgangskode?
 login_forgot2=Glemt din Usermin adgangskode?

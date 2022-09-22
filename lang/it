@@ -18,6 +18,7 @@ index_emailheader=Personalizza Recupera Email
 index_emaildesc=Questo form può essere usato per inserire un messaggio email personalizzato che verrà inviato per il recupero password. Le sostituzioni <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> ed altre possono essere usate in questo messaggio.
 index_emaildef=Invia messaggio email di default.
 index_emailset=Invia messaggio sottostante ..
+
 email_title=Recuperando La Password
 email_einput=Username di amministrazione o nome di dominio non inserito
 email_edom=Nessun virtual server trovato con il tuo username o nome di dominio
@@ -36,10 +37,13 @@ email_done2=Il login e la password per il tuo account proprietario di sistema $2
 email_failed=Recupero password fallito
 email_eproduct=Ne Virtualmin ne Cloudmin sono intallati, quindi nessun account per il recupero password disponibile
 email_edompass=La password del tuo virtual server per l'accesso $1 non può essere recuperata in quanto non è stata immagazzinata in Virtualmin.Perfavore contattate il vostro amministratore di sistema per resettare la password.
+
 log_email=Password spedita per il virtual server $1 a $2.
 log_email2=Password spedita per il propritario di sistema $1 a $2.
 log_save=Recupero email aggiornato
+
 save_err=Failed to save email message
 save_eanon=Not available to un-authenticated users!
 save_eemail=Nessun messaggio inserito
+
 login_forgot=Dimenticata la tua password Virtualmin?

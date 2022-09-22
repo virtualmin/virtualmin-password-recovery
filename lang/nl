@@ -18,6 +18,7 @@ index_emailheader=Email Herstellen Aanpassen
 index_emaildesc=Dit formulier kan worden gebruikt om een custom email te maken die word verstuurd wanneer er een wachtwoord word opgevraagd. U kunt hiervoor de handige toevoegingen gebruiken zoals: <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> en andere, zodat die automatisch worden gemaakt in de email.
 index_emaildef=Verstuur standaard email wachtwoord
 index_emailset=Verstuur bericht hieronder ..
+
 email_title=Herstellen Wachtwoord
 email_einput=Er is geen administratie gebruikersnaam of domein ingevuld.
 email_edom=Er is geen virtuele server gevonden die overeenkwam met uw gebruikersnaam of domein.
@@ -36,10 +37,13 @@ email_done2=De login en het wachtwoord voor uw systeem eigenaar account $2 is ve
 email_failed=Wachtwoord opvragen is mislukt
 email_eproduct=Noch Virtualmin of Cloudmin is geinstalleerd, dus er zijn geen wachtwoorden opgeslagen om terug te halen.
 email_edompass=Uw virtuele server wachtwoord om in te loggen bij $1 kan niet worden opgehaald omdat het niet was opgeslagen in Virtualmin. Neem alstublieft contact op met de administrator om het wachtwoord te resetten.
+
 log_email=Verstuur wachtwoord van de virtuele server $1 naar $2
 log_email2=Verstuur wachtwoord van de systeem eigenaar $1 naar $2.
 log_save=Update email opvragen
+
 save_err=Mislukt om email bericht op te slaan
 save_eanon=Niet beschikbaar voor gebruikers die niet geidentificeerd kunnen worden!
 save_eemail=Geen bericht ingevuld
+
 login_forgot=Uw Virtualmin wachtwoord vergeten?

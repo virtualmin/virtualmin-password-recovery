@@ -25,6 +25,7 @@ index_emailheader=自定義輔助郵箱
 index_emaildesc=此表單可用於輸入要發送的自定義電子郵件，以恢復密碼。可以在消息中使用<tt>$DOM</tt> ， <tt>$USER</tt> ， <tt>$PASS</tt> ， <tt>$CLIENTIP</tt> ， <tt>$USERAGENT</tt>等<tt>$CLIENTIP</tt> 。
 index_emaildef=發送默認電子郵件
 index_emailset=在下面發送消息 ..
+
 email_title=找回密碼
 email_einput=沒有輸入管理用戶名或域名
 email_edom=找不到與您的用戶名或域匹配的虛擬服務器
@@ -52,7 +53,7 @@ email_edompass=您的登錄名 $1的虛擬服務器密碼無法恢復，因為Vi
 email_eownerpass=您無法恢復登錄名 $1的系統所有者密碼，因為Cloudmin尚未存儲該密碼。請與系統管理員聯繫以重置密碼。
 email_euserpass=您的登錄 $1的Usermin密碼無法恢復，因為Virtualmin尚未存儲該密碼。請與系統管理員聯繫以重置密碼。
 email_return=返回<a href='$1'>登錄表單</a>以使用新密碼。
-email_eid=無效的消息ID！
+email_eid=無效的郵件 ID  : $1
 email_esid=無法生成隨機ID！
 email_msglink=由於收到來自 $3的Virtualmin虛擬服務器 $2的密碼恢復請求，您收到此電子郵件。要繼續進行恢復，請單擊以下鏈接：\n $1 \n\n如果您未提出此請求，請忽略此電子郵件。
 email_msglink2=由於收到來自 $3的Cloudmin系統所有者 $2的密碼恢復請求，您收到此電子郵件。要繼續進行恢復，請單擊以下鏈接：\n $1 \n\n如果您未提出此請求，請忽略此電子郵件。
@@ -60,11 +61,14 @@ email_msglink3=您收到此電子郵件是由於要求從 $3恢復Usermin帳戶 
 email_donelink=電子郵件已發送到您的恢復地址 $1，其中包含必須單擊以重置密碼的鏈接。
 email_linkfor=鏈接 $1
 email_etime=輔助郵箱已使用1天以上！
+
 log_email=已將虛擬服務器 $1的密碼發送到 $2。
 log_email2=已將系統所有者 $1的密碼發送到 $2。
 log_save=更新了輔助郵箱
+
 save_err=無法保存電子郵件
 save_eanon=不適用於未經身份驗證的用戶！
 save_eemail=沒有輸入消息
+
 login_forgot=忘記了您的Webmin密碼？
 login_forgot2=忘記了您的Usermin密碼？

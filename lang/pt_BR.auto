@@ -25,6 +25,7 @@ index_emailheader=Personalizar email de recuperação
 index_emaildesc=Este formulário pode ser usado para inserir uma mensagem de email personalizada a ser enviada para recuperação de senha. As subestações <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> e mais podem ser usadas na mensagem.
 index_emaildef=Enviar mensagem de email padrão
 index_emailset=Envie a mensagem abaixo ..
+
 email_title=Recuperando Senha
 email_einput=Nenhum nome de usuário ou domínio de administração foi inserido
 email_edom=Nenhum servidor virtual correspondente ao seu nome de usuário ou domínio foi encontrado
@@ -52,7 +53,7 @@ email_edompass=A senha do servidor virtual para o login $1 não pode ser recuper
 email_eownerpass=A senha do proprietário do sistema para o login $1 não pode ser recuperada, pois não foi armazenada pelo Cloudmin. Entre em contato com o administrador do sistema para redefinir a senha.
 email_euserpass=Sua senha do Usermin para o login $1 não pode ser recuperada, pois não foi armazenada pelo Virtualmin. Entre em contato com o administrador do sistema para redefinir a senha.
 email_return=Retorne ao <a href='$1'>formulário de login</a> para usar sua nova senha.
-email_eid=ID da mensagem inválida!
+email_eid=ID de mensagem inválida : $1
 email_esid=Falha ao gerar o ID aleatório!
 email_msglink=Você está recebendo este email devido a uma solicitação de recuperação de senha para o servidor virtual Virtualmin $2 de $3. Para continuar com a recuperação, clique neste link: \n $1 \n\nSe você não fez esta solicitação, ignore este e-mail.
 email_msglink2=Você está recebendo este email devido a uma solicitação de recuperação de senha para o proprietário do sistema Cloudmin $2 de $3. Para continuar com a recuperação, clique neste link: \n $1 \n\nSe você não fez esta solicitação, ignore este e-mail.
@@ -60,11 +61,14 @@ email_msglink3=Você está recebendo este e-mail devido a uma solicitação de r
 email_donelink=O email foi enviado para o seu endereço de recuperação $1, contendo um link no qual deve ser clicado para redefinir sua senha.
 email_linkfor=Link para $1 
 email_etime=O email de recuperação tem mais de um dia!
+
 log_email=Senha enviada para o servidor virtual $1 a $2.
 log_email2=Senha enviada para o proprietário do sistema $1 a $2.
 log_save=Email de recuperação atualizado
+
 save_err=Falha ao salvar a mensagem de email
 save_eanon=Não disponível para usuários não autenticados!
 save_eemail=Nenhuma mensagem inserida
+
 login_forgot=Esqueceu sua senha do Webmin?
 login_forgot2=Esqueceu sua senha do Usermin?

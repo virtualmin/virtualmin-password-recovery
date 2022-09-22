@@ -25,6 +25,7 @@ index_emailheader=Prilagodite e-poštu za oporavak
 index_emaildesc=Ovaj se obrazac može koristiti za unošenje prilagođene poruke e-pošte koja će se poslati za oporavak lozinke. Substitions <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> i više mogu se koristiti u poruci.
 index_emaildef=Pošaljite zadanu poruku e-pošte
 index_emailset=Pošaljite poruku u nastavku ..
+
 email_title=Oporavak lozinke
 email_einput=Nije upisano korisničko ime ili ime domene
 email_edom=Nije pronađen nijedan virtualni poslužitelj koji odgovara vašem korisničkom imenu ili domeni
@@ -52,7 +53,7 @@ email_edompass=Vašu virtualnu lozinku poslužitelja za prijavu $1 nije moguće 
 email_eownerpass=Vaša lozinka vlasnika sustava za prijavu $1 ne može se oporaviti jer je Cloudmin nije spremio. Obratite se svom administratoru sustava da biste resetirali lozinku.
 email_euserpass=Korisničku lozinku za prijavu $1 nije moguće vratiti jer je Virtualmin nije pohranio. Obratite se svom administratoru sustava da biste resetirali lozinku.
 email_return=Vratite se u <a href='$1'>obrazac za prijavu</a> da biste koristili novu lozinku.
-email_eid=Nevažeći ID poruke!
+email_eid=Nevažeći ID poruke : $1
 email_esid=Generiranje slučajnih ID-ova nije uspjelo!
 email_msglink=Ovu e-poštu primite zbog zahtjeva za oporavak lozinke za virtualni virtualni poslužitelj $2 od $3. Da biste nastavili s oporavkom, kliknite ovu vezu: \n $1 \n\nAko niste postavili ovaj zahtjev, zanemarite ovu e-poštu.
 email_msglink2=Ovu e-poštu dobijate zbog zahtjeva za oporavak lozinke za vlasnika Cloudmin sustava $2 od $3. Da biste nastavili s oporavkom, kliknite ovu vezu: \n $1 \n\nAko niste postavili ovaj zahtjev, zanemarite ovu e-poštu.
@@ -60,11 +61,14 @@ email_msglink3=Ovu ste poruku primili zbog zahtjeva za oporavak lozinke za Userm
 email_donelink=Adresa e-pošte poslana je na vašu adresu za oporavak $1 koja sadrži vezu na koju se mora pritisnuti kako biste resetirali zaporku.
 email_linkfor=Veza za $1 
 email_etime=E-adresa za oporavak stara je više od jednog dana!
+
 log_email=Poslana lozinka za virtualni poslužitelj $1 do $2.
 log_email2=Poslana lozinka za vlasnika sustava $1 do $2.
 log_save=Ažurirana e-pošta za oporavak
+
 save_err=Spremanje poruke e-pošte nije uspjelo
 save_eanon=Nije dostupno korisnicima bez autentičnosti!
 save_eemail=Nije unesena poruka
+
 login_forgot=Zaboravili ste lozinku za Webmin?
 login_forgot2=Zaboravili ste lozinku za Usermin?

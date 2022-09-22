@@ -25,6 +25,7 @@ index_emailheader=Tilpass gjenopprettings-e-post
 index_emaildesc=Dette skjemaet kan brukes til å legge inn en tilpasset e-postmelding som skal sendes for gjenoppretting av passord. Substitusjonene <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> og mer kan brukes i meldingen.
 index_emaildef=Send standard e-postmelding
 index_emailset=Send melding nedenfor ..
+
 email_title=Gjenopprette passord
 email_einput=Ingen administrasjons brukernavn eller domenenavn ble angitt
 email_edom=Ingen virtuell server som samsvarer med brukernavnet eller domenet ditt ble funnet
@@ -52,7 +53,7 @@ email_edompass=Ditt virtuelle serverpassord for innlogging $1 kan ikke gjenoppre
 email_eownerpass=Systemeier-passordet ditt for innlogging $1 kan ikke gjenopprettes, da det ikke er lagret av Cloudmin. Kontakt systemadministratoren for å tilbakestille passordet.
 email_euserpass=Usermin-passordet ditt for innlogging $1 kan ikke gjenopprettes, da det ikke er lagret av Virtualmin. Kontakt systemadministratoren for å tilbakestille passordet.
 email_return=Gå tilbake til <a href='$1'>påloggingsskjema</a> for å bruke det nye passordet ditt.
-email_eid=Ugyldig melding-ID!
+email_eid=Ugyldig meldings-ID : $1
 email_esid=Kunne ikke generere tilfeldig ID!
 email_msglink=Du mottar denne e-posten på grunn av en forespørsel om gjenoppretting av passord for den virtuelle Virtualmin-serveren $2 fra $3. For å fortsette med gjenoppretting, klikk på denne lenken: \n $1 \n\nHvis du ikke sendte denne forespørselen, kan du ignorere denne e-postadressen.
 email_msglink2=Du mottar denne e-posten på grunn av en forespørsel om gjenoppretting av passord for Cloudmin-systemeieren $2 fra $3. For å fortsette med gjenoppretting, klikk på denne lenken: \n $1 \n\nHvis du ikke sendte denne forespørselen, kan du ignorere denne e-postadressen.
@@ -60,11 +61,14 @@ email_msglink3=Du mottar denne e-posten på grunn av en forespørsel om gjenoppr
 email_donelink=Det er sendt e-post til gjenopprettingsadressen $1 som inneholder en kobling som må klikkes på for å tilbakestille passordet ditt.
 email_linkfor=Kobling for $1 
 email_etime=Gjenopprettings-e-postadressen er mer enn 1 dag gammel!
+
 log_email=Sendt passord for virtuell server $1 til $2.
 log_email2=Sendt passord for systemeier $1 til $2.
 log_save=Oppdatert gjenopprettings-e-post
+
 save_err=Kunne ikke lagre e-postmeldingen
 save_eanon=Ikke tilgjengelig for ikke-autentiserte brukere!
 save_eemail=Ingen meldinger er skrevet inn
+
 login_forgot=Har du glemt Webmin-passordet?
 login_forgot2=Glemt passordet ditt?

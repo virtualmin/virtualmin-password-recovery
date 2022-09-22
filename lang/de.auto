@@ -25,6 +25,7 @@ index_emailheader=Passen Sie die Wiederherstellungs-E-Mail an
 index_emaildesc=Mit diesem Formular können Sie eine benutzerdefinierte E-Mail-Nachricht eingeben, die zur Kennwortwiederherstellung gesendet werden soll. Die Substitutionen <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> und mehr können in der Nachricht verwendet werden.
 index_emaildef=Standard-E-Mail-Nachricht senden
 index_emailset=Nachricht unten senden ..
+
 email_title=Passwort wiederherstellen
 email_einput=Es wurde kein Administrations-Benutzername oder Domain-Name eingegeben
 email_edom=Es wurde kein virtueller Server gefunden, der Ihrem Benutzernamen oder Ihrer Domain entspricht
@@ -52,7 +53,7 @@ email_edompass=Ihr Kennwort für den virtuellen Server für die Anmeldung $1 kan
 email_eownerpass=Ihr Systembesitzer-Passwort für Login $1 kann nicht wiederhergestellt werden, da es nicht von Cloudmin gespeichert wurde. Wenden Sie sich an Ihren Systemadministrator, um das Kennwort zurückzusetzen.
 email_euserpass=Ihr Usermin-Passwort für Login $1 kann nicht wiederhergestellt werden, da es nicht von Virtualmin gespeichert wurde. Wenden Sie sich an Ihren Systemadministrator, um das Kennwort zurückzusetzen.
 email_return=Kehren Sie zum <a href='$1'>Anmeldeformular</a> zurück, um Ihr neues Passwort zu verwenden.
-email_eid=Ungültige Nachrichten ID!
+email_eid=Ungültige Nachrichten-ID : $1
 email_esid=Fehler beim Generieren der zufälligen ID!
 email_msglink=Sie erhalten diese E-Mail aufgrund einer Anforderung zur Kennwortwiederherstellung für den virtuellen Virtualmin-Server $2 von $3. Klicken Sie auf diesen Link, um mit der Wiederherstellung fortzufahren: \n $1 \n\nWenn Sie diese Anfrage nicht gestellt haben, ignorieren Sie diese E-Mail.
 email_msglink2=Sie erhalten diese E-Mail aufgrund einer Anforderung zur Kennwortwiederherstellung für den Cloudmin-Systembesitzer $2 von $3. Klicken Sie auf diesen Link, um mit der Wiederherstellung fortzufahren: \n $1 \n\nWenn Sie diese Anfrage nicht gestellt haben, ignorieren Sie diese E-Mail.
@@ -60,11 +61,14 @@ email_msglink3=Sie erhalten diese E-Mail aufgrund einer Anfrage zur Kennwortwied
 email_donelink=Es wurde eine E-Mail an Ihre Wiederherstellungsadresse $1 gesendet, die einen Link enthält, auf den Sie klicken müssen, um Ihr Passwort zurückzusetzen.
 email_linkfor=Link für $1 
 email_etime=Wiederherstellungs-E-Mail ist älter als 1 Tag!
+
 log_email=Passwort für virtuellen Server $1 bis $2 gesendet.
 log_email2=Passwort für Systembesitzer $1 bis $2 gesendet.
 log_save=Aktualisierte Wiederherstellungs-E-Mail
+
 save_err=E-Mail-Nachricht konnte nicht gespeichert werden
 save_eanon=Nicht für nicht authentifizierte Benutzer verfügbar!
 save_eemail=Keine Nachricht eingegeben
+
 login_forgot=Haben Sie Ihr Webmin-Passwort vergessen?
 login_forgot2=Hast du dein Usermin Passwort vergessen?

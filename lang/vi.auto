@@ -25,6 +25,7 @@ index_emailheader=Tùy chỉnh email khôi phục
 index_emaildesc=Biểu mẫu này có thể được sử dụng để nhập thông điệp email tùy chỉnh được gửi để khôi phục mật khẩu. Các trạm biến áp <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> và nhiều hơn nữa có thể được sử dụng trong tin nhắn.
 index_emaildef=Gửi tin nhắn email mặc định
 index_emailset=Gửi tin nhắn dưới đây ..
+
 email_title=Lấy lại mật khẩu
 email_einput=Không có tên người dùng quản trị hoặc tên miền đã được nhập
 email_edom=Không tìm thấy máy chủ ảo phù hợp với tên người dùng hoặc tên miền của bạn
@@ -52,7 +53,7 @@ email_edompass=Mật khẩu máy chủ ảo của bạn để đăng nhập $1 k
 email_eownerpass=Mật khẩu chủ sở hữu hệ thống của bạn để đăng nhập $1 không thể được phục hồi vì nó chưa được Cloudmin lưu trữ. Vui lòng liên hệ với quản trị viên hệ thống của bạn để đặt lại mật khẩu.
 email_euserpass=Mật khẩu Usermin của bạn để đăng nhập $1 không thể được phục hồi vì nó chưa được Virtualmin lưu trữ. Vui lòng liên hệ với quản trị viên hệ thống của bạn để đặt lại mật khẩu.
 email_return=Quay lại biểu mẫu đăng nhập <a href='$1'></a> để sử dụng mật khẩu mới của bạn.
-email_eid=ID của thông điệp không hợp lệ!
+email_eid=ID tin nhắn không hợp lệ : $1 
 email_esid=Không thể tạo ID ngẫu nhiên!
 email_msglink=Bạn đang nhận được email này do yêu cầu khôi phục mật khẩu cho máy chủ ảo Virtualmin $2 từ $3. Để tiến hành khôi phục, nhấp vào liên kết này: \n $1 \n\nNếu bạn không thực hiện yêu cầu này, vui lòng bỏ qua email này.
 email_msglink2=Bạn đang nhận được email này do yêu cầu khôi phục mật khẩu cho chủ sở hữu hệ thống Cloudmin $2 từ $3. Để tiến hành khôi phục, nhấp vào liên kết này: \n $1 \n\nNếu bạn không thực hiện yêu cầu này, vui lòng bỏ qua email này.
@@ -60,11 +61,14 @@ email_msglink3=Bạn đang nhận được email này do yêu cầu khôi phục
 email_donelink=Email đã được gửi đến địa chỉ khôi phục của bạn $1 có chứa một liên kết phải được nhấp vào để đặt lại mật khẩu của bạn.
 email_linkfor=Liên kết cho $1 
 email_etime=Email khôi phục đã hơn 1 ngày tuổi!
+
 log_email=Đã gửi mật khẩu cho máy chủ ảo $1 đến $2.
 log_email2=Đã gửi mật khẩu cho chủ sở hữu hệ thống $1 đến $2.
 log_save=Cập nhật email khôi phục
+
 save_err=Không thể lưu email
 save_eanon=Không có sẵn cho người dùng chưa được xác thực!
 save_eemail=Không có tin nhắn nào được nhập
+
 login_forgot=Quên mật khẩu Webmin của bạn?
 login_forgot2=Quên mật khẩu Usermin của bạn?

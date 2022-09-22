@@ -25,6 +25,7 @@ index_emailheader=Anpassa återställnings-e-post
 index_emaildesc=Detta formulär kan användas för att ange ett anpassat e-postmeddelande som ska skickas för återställning av lösenord. Substitutionerna <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> och mer kan användas i meddelandet.
 index_emaildef=Skicka standard e-postmeddelande
 index_emailset=Skicka meddelande nedan ..
+
 email_title=Återställer lösenord
 email_einput=Inget administrationsnamn eller domännamn angavs
 email_edom=Ingen virtuell server som matchar ditt användarnamn eller domän hittades
@@ -52,7 +53,7 @@ email_edompass=Ditt lösenord för virtuell server för inloggning $1 kan inte �
 email_eownerpass=Ditt systemägare-lösenord för inloggning $1 kan inte återställas eftersom det inte har lagrats av Cloudmin. Kontakta din systemadministratör för att återställa lösenordet.
 email_euserpass=Ditt Usermin-lösenord för inloggning $1 kan inte återställas eftersom det inte har lagrats av Virtualmin. Kontakta din systemadministratör för att återställa lösenordet.
 email_return=Gå tillbaka till <a href='$1'>inloggningsformulär</a> för att använda ditt nya lösenord.
-email_eid=Ogiltigt meddelande-ID!
+email_eid=Ogiltigt meddelande-ID : $1
 email_esid=Det gick inte att generera slumpmässigt ID!
 email_msglink=Du får det här e-postmeddelandet på grund av en begäran om återställning av lösenord för Virtualmin virtuella servern $2 från $3. För att fortsätta med återställningen, klicka på den här länken: \n $1 \n\nOm du inte skickade den här begäran, vänligen ignorera det här e-postmeddelandet
 email_msglink2=Du får det här e-postmeddelandet på grund av en begäran om återställning av lösenord för Cloudmin-systemägaren $2 från $3. För att fortsätta med återställningen, klicka på den här länken: \n $1 \n\nOm du inte skickade den här begäran, vänligen ignorera det här e-postmeddelandet
@@ -60,11 +61,14 @@ email_msglink3=Du får detta e-postmeddelande på grund av en begäran om åters
 email_donelink=E-post har skickats till din återställningsadress $1 som innehåller en länk som måste klickas på för att återställa ditt lösenord.
 email_linkfor=Länk för $1 
 email_etime=Återställnings-e-postmeddelandet är mer än en dag gammalt!
+
 log_email=Skickat lösenord för virtuell server $1 till $2.
 log_email2=Skickat lösenord för systemägare $1 till $2.
 log_save=Uppdaterad e-postadress för återställning
+
 save_err=Det gick inte att spara e-postmeddelandet
 save_eanon=Inte tillgängligt för icke-autentiserade användare!
 save_eemail=Inget meddelande har matats in
+
 login_forgot=Har du glömt ditt Webmin-lösenord?
 login_forgot2=Har du glömt ditt lösenord för Usermin?

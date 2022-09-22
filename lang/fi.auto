@@ -25,6 +25,7 @@ index_emailheader=Mukauta palautussähköposti
 index_emaildesc=Tätä lomaketta voidaan käyttää muokatun sähköpostiviestin lähettämiseen salasanan palauttamista varten. Substituutioita <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> ja muuta voidaan käyttää viestissä.
 index_emaildef=Lähetä oletusviesti
 index_emailset=Lähetä viesti alla ..
+
 email_title=Salasanan palauttaminen
 email_einput=Ylläpitäjän käyttäjänimeä tai verkkotunnuksen nimeä ei annettu
 email_edom=Käyttäjätunnustasi tai verkkotunnustasi vastaavaa virtuaalipalvelinta ei löytynyt
@@ -52,7 +53,7 @@ email_edompass=Sisäänkirjautumisen $1 virtuaalipalvelimen salasanaa ei voi pal
 email_eownerpass=Järjestelmän omistajan salasanaa sisäänkirjautumiselle $1 ei voi palauttaa, koska Cloudmin ei ole tallentanut sitä. Ota yhteys järjestelmänvalvojaan salasanan palauttamiseksi.
 email_euserpass=Sisäänkirjautumisen $1 Usermin-salasanaasi ei voi palauttaa, koska Virtualmin ei ole tallentanut sitä. Ota yhteys järjestelmänvalvojaan salasanan palauttamiseksi.
 email_return=Palaa <a href='$1'>kirjautumislomakkeeseen</a> käyttääksesi uutta salasanaasi.
-email_eid=Virheellinen viestin tunnus!
+email_eid=Virheellinen viestin tunnus : $1
 email_esid=Satunnaisen tunnuksen luominen epäonnistui!
 email_msglink=Sait tämän sähköpostiviestin Virtualmin-virtuaalipalvelimen $2 salasanan palautuspyynnön vuoksi kohdasta $3. Jatka palauttamista napsauttamalla tätä linkkiä: \n $1 \n\nJos et ole esittänyt tätä pyyntöä, ohita tämä sähköpostiosoite.
 email_msglink2=Sait tämän sähköpostiviestin, koska Cloudmin-järjestelmän omistaja $2 pyysi salasanan palauttamista $3 osoitteesta $3. Jatka palauttamista napsauttamalla tätä linkkiä: \n $1 \n\nJos et ole esittänyt tätä pyyntöä, ohita tämä sähköpostiosoite.
@@ -60,11 +61,14 @@ email_msglink3=Sait tämän sähköpostin, koska Usermin-tilin $2 salasanan pala
 email_donelink=Sähköposti on lähetetty palautusosoitteeseesi $1, joka sisältää linkin, jota on napsautettava salasanasi palauttamiseksi.
 email_linkfor=Linkki kohteelle $1 
 email_etime=Palautussähköposti on yli yhden päivän vanha!
+
 log_email=Lähetetty virtuaalipalvelimen salasana $1 - $2.
 log_email2=Lähetetty salasana järjestelmän omistajalle $1 - $2.
 log_save=Päivitetty palautussähköposti
+
 save_err=Sähköpostiviestin tallennus epäonnistui
 save_eanon=Ei käytettävissä todentamattomille käyttäjille!
 save_eemail=Viestiä ei annettu
+
 login_forgot=Unohditko Webmin-salasanasi?
 login_forgot2=Unohditko Usermin-salasanasi?

@@ -25,6 +25,7 @@ index_emailheader=Prilagodite obnovitveno e-pošto
 index_emaildesc=Ta obrazec lahko uporabite za vnos e-poštnega sporočila po meri, ki ga želite poslati za obnovitev gesla. V sporočilu je mogoče uporabiti <tt>$USERAGENT</tt> <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> in več.
 index_emaildef=Pošlji privzeto e-poštno sporočilo
 index_emailset=Pošlji sporočilo spodaj ..
+
 email_title=Obnovitev gesla
 email_einput=Uporabniško ime ali ime domene ni bilo vneseno
 email_edom=Ni bil najden virtualni strežnik, ki bi se ujemal z vašim uporabniškim imenom ali domeno
@@ -52,7 +53,7 @@ email_edompass=Gesla za virtualni strežnik za prijavo $1 ni mogoče obnoviti, s
 email_eownerpass=Gesla lastnika sistema za prijavo $1 ni mogoče obnoviti, saj ga Cloudmin ni shranil. Za ponastavitev gesla se obrnite na skrbnika sistema.
 email_euserpass=Uporabniškega gesla za prijavo $1 ni mogoče obnoviti, ker ga Virtualmin ni shranil. Za ponastavitev gesla se obrnite na skrbnika sistema.
 email_return=Vrnite se na <a href='$1'>obrazec za prijavo</a> in uporabite novo geslo.
-email_eid=Neveljaven ID sporočila!
+email_eid=Neveljaven ID sporočila : $1
 email_esid=Ni bilo mogoče ustvariti naključnega ID-ja!
 email_msglink=To e-poštno sporočilo prejmete zaradi zahteve za obnovitev gesla za virtualni strežnik Virtualmin $2 od $3. Če želite nadaljevati z obnovitvijo, kliknite to povezavo: \n $1 \n\nČe niste vložili te zahteve, prezrite to e-poštno sporočilo.
 email_msglink2=To e-poštno sporočilo ste prejeli zaradi zahteve za obnovitev gesla za lastnika sistema Cloudmin $2 od $3. Če želite nadaljevati z obnovitvijo, kliknite to povezavo: \n $1 \n\nČe niste vložili te zahteve, prezrite to e-poštno sporočilo.
@@ -60,11 +61,14 @@ email_msglink3=To e-poštno sporočilo prejmete zaradi zahteve za obnovitev gesl
 email_donelink=E-poštno sporočilo je bilo poslano na vaš obnovitveni naslov $1, ki vsebuje povezavo, ki jo je treba klikniti, da ponastavite geslo.
 email_linkfor=Povezava za $1 
 email_etime=Obnovitveni e-poštni naslov je star več kot en dan!
+
 log_email=Poslano geslo za virtualni strežnik $1 do $2.
 log_email2=Poslano geslo za lastnika sistema $1 do $2.
 log_save=Posodobljeno obnovitveno e-poštno sporočilo
+
 save_err=E-sporočila ni bilo mogoče shraniti
 save_eanon=Ni na voljo za uporabnike, ki niso overjeni!
 save_eemail=Nobeno sporočilo ni vneseno
+
 login_forgot=Ste pozabili geslo za Webmin?
 login_forgot2=Ste pozabili geslo za uporabniško ime?

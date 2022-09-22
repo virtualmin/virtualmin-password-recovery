@@ -25,6 +25,7 @@ index_emailheader=Pielāgojiet atkopšanas e-pastu
 index_emaildesc=Šo veidlapu var izmantot, lai ievadītu pielāgotu e-pasta ziņojumu, kas jānosūta paroles atkopšanai. Ziņojumā var izmantot substrātus <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> un daudz ko citu.
 index_emaildef=Sūtīt noklusējuma e-pasta ziņojumu
 index_emailset=Sūtīt ziņojumu zemāk ..
+
 email_title=Paroles atkopšana
 email_einput=Netika ievadīts administrācijas lietotājvārds vai domēna vārds
 email_edom=Netika atrasts neviens virtuālais serveris, kas atbilstu jūsu lietotājvārdam vai domēnam
@@ -52,7 +53,7 @@ email_edompass=Jūsu virtuālā servera paroli pieteikšanās $1 nevar atgūt, j
 email_eownerpass=Jūsu sistēmas īpašnieka paroli pieteikšanās $1 nevar atgūt, jo Cloudmin to nav saglabājusi. Lai atiestatītu paroli, lūdzu, sazinieties ar sistēmas administratoru.
 email_euserpass=Jūsu Usermin paroli pieteikšanās $1 nevar atgūt, jo Virtualmin to nav saglabājusi. Lai atiestatītu paroli, lūdzu, sazinieties ar sistēmas administratoru.
 email_return=Atgriezieties <a href='$1'>pieteikšanās formā</a>, lai izmantotu jauno paroli.
-email_eid=Nederīgs ziņojuma ID.
+email_eid=Nederīgs ziņojuma ID : $1
 email_esid=Neizdevās ģenerēt nejaušu ID!
 email_msglink=Jūs saņemat šo e-pastu, jo ir saņemts pieprasījums paroles atjaunošanai virtuālajam serverim $2 no $3. Lai turpinātu atkopšanu, noklikšķiniet uz šīs saites: \n $1 \n\nJa jūs neizteicāt šo pieprasījumu, lūdzu, ignorējiet šo e-pastu.
 email_msglink2=Jūs saņemat šo e-pasta ziņojumu, jo Cloudmin sistēmas īpašniekam $2 no $3 tika pieprasīts paroles atkopšana. Lai turpinātu atkopšanu, noklikšķiniet uz šīs saites: \n $1 \n\nJa jūs neizteicāt šo pieprasījumu, lūdzu, ignorējiet šo e-pastu.
@@ -60,11 +61,14 @@ email_msglink3=Jūs saņemat šo e-pastu, jo ir saņemts pieprasījums paroles a
 email_donelink=Uz jūsu atkopšanas adresi $1 ir nosūtīts e-pasts ar saiti, uz kuras jānoklikšķina, lai atiestatītu paroli.
 email_linkfor=Saite $1 
 email_etime=Atkopšanas e-pasts ir vairāk nekā 1 dienu vecs.
+
 log_email=Nosūtīta parole virtuālajam serverim no $1 līdz $2.
 log_email2=Nosūtīta parole sistēmas īpašniekam no $1 līdz $2.
 log_save=Atjaunināts atkopšanas e-pasts
+
 save_err=Neizdevās saglabāt e-pasta ziņojumu
 save_eanon=Nav pieejams lietotājiem, kuri nav autentificēti!
 save_eemail=Nav ievadīts neviens ziņojums
+
 login_forgot=Vai aizmirsāt Webmin paroli?
 login_forgot2=Aizmirsāt savu Usermin paroli?

@@ -25,6 +25,7 @@ index_emailheader=Přizpůsobte si e-mail pro obnovení
 index_emaildesc=Tento formulář lze použít k zadání vlastní e-mailové zprávy, která má být odeslána k obnovení hesla. Ve <tt>$USERAGENT</tt> lze použít <tt>$USERAGENT</tt> <tt>$DOM</tt>, <tt>$USER</tt>, <tt>$PASS</tt>, <tt>$CLIENTIP</tt>, <tt>$USERAGENT</tt> a další.
 index_emaildef=Odeslat výchozí e-mailovou zprávu
 index_emailset=Odeslat zprávu níže ..
+
 email_title=Obnovení hesla
 email_einput=Nebylo zadáno žádné uživatelské jméno ani název domény pro správu
 email_edom=Nebyl nalezen žádný virtuální server odpovídající vašemu uživatelskému jménu nebo doméně
@@ -52,7 +53,7 @@ email_edompass=Heslo virtuálního serveru pro přihlášení $1 nelze obnovit, 
 email_eownerpass=Heslo vlastníka systému pro přihlášení $1 nelze obnovit, protože nebylo uloženo společností Cloudmin. Chcete-li obnovit heslo, obraťte se na správce systému.
 email_euserpass=Vaše heslo Usermin pro přihlášení $1 nelze obnovit, protože nebylo uloženo společností Virtualmin. Chcete-li obnovit heslo, obraťte se na správce systému.
 email_return=Vraťte se do <a href='$1'>přihlašovacího formuláře</a> a použijte nové heslo.
-email_eid=Neplatné ID zprávy!
+email_eid=Neplatné ID zprávy : $1
 email_esid=Nepodařilo se vygenerovat náhodné ID!
 email_msglink=Tento e-mail jste obdrželi kvůli žádosti o obnovení hesla pro virtuální server Virtualmin $2 od $3. Chcete-li pokračovat s obnovou, klikněte na tento odkaz: \n $1 \n\nPokud jste tento požadavek nevydali, ignorujte prosím tento e-mail.
 email_msglink2=Tento e-mail jste obdrželi kvůli žádosti o obnovení hesla vlastníka systému Cloudmin $2 od $3. Chcete-li pokračovat s obnovou, klikněte na tento odkaz: \n $1 \n\nPokud jste tento požadavek nevydali, ignorujte prosím tento e-mail.
@@ -60,11 +61,14 @@ email_msglink3=Tento e-mail jste obdrželi kvůli žádosti o obnovení hesla pr
 email_donelink=Na vaši adresu pro obnovení $1 byl odeslán e-mail obsahující odkaz, na který musíte kliknout, abyste resetovali své heslo.
 email_linkfor=Odkaz pro $1 
 email_etime=E-mail pro obnovení je starší než 1 den!
+
 log_email=Odeslané heslo pro virtuální server $1 až $2.
 log_email2=Odesláno heslo pro vlastníka systému $1 až $2.
 log_save=Aktualizovaný e-mail pro obnovení
+
 save_err=Uložení e-mailové zprávy se nezdařilo
 save_eanon=Není k dispozici neověřeným uživatelům!
 save_eemail=Nebyla zadána žádná zpráva
+
 login_forgot=Zapomněli jste heslo správce webu?
 login_forgot2=Zapomněli jste heslo Usermin?
