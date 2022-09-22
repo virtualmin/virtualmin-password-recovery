@@ -30,7 +30,7 @@ if ($in{'id'} && $in{'id'} =~ /^[a-z0-9]+$/i) {
 		&error_and_exit($text{'email_etime'});
 		}
 	}
-elsif ($in{'id'} =~ /\S+/) {
+elsif ($in{'id'} && $in{'id'} =~ /\S+/) {
 	&error(&text('email_eid', $in{'id'}));
 	}
 
