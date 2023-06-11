@@ -313,6 +313,7 @@ $msg = join("\n", &mailboxes::wrap_lines($msg, 70))."\n";
 my $emailto = $user ? $user->{'recovery'} :
 	   $dom ? $dom->{'emailto'} :
 		  $owner->{'acl'}->{'email'};
+$emailto=~ s/\n+$//;
 my $subject = $user ? $text{'email_subject3'} :
 	   $dom ? $text{'email_subject'} :
 		  $text{'email_subject2'};
