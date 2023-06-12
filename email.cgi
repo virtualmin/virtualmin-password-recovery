@@ -152,7 +152,7 @@ if ($user) {
 		my $rfile = "$user->{'home'}/.usermin/changepass/recovery";
 		$user->{'recovery'} = &virtual_server::write_as_mailbox_user(
 			$user, sub { &read_file_contents($rfile) });
-		$user->{'recovert'} =~ s/\r|\n//g if ($user->{'recovert'});
+		$user->{'recovery'} =~ s/\r|\n//g if ($user->{'recovery'});
 		}
 	$user->{'recovery'} || &error_and_exit($text{'email_euserrandom'});
 	}
@@ -313,7 +313,6 @@ $msg = join("\n", &mailboxes::wrap_lines($msg, 70))."\n";
 my $emailto = $user ? $user->{'recovery'} :
 	   $dom ? $dom->{'emailto'} :
 		  $owner->{'acl'}->{'email'};
-$emailto=~ s/\n+$//;
 my $subject = $user ? $text{'email_subject3'} :
 	   $dom ? $text{'email_subject'} :
 		  $text{'email_subject2'};
