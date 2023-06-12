@@ -20,9 +20,9 @@ if (&foreign_installed("usermin")) {
 	&foreign_require("usermin");
 	my %uclang;
 	&read_file("$usermin::config{'usermin_dir'}/custom-lang", \%uclang);
-  if ($uclang{'session_postfix'} =~ /\Q$text{'login_forgot2'}\E/) {
-	  delete($uclang{'session_postfix'});
-	  &write_file("$usermin::config{'usermin_dir'}/custom-lang", \%uclang);
-  }
- }
+	if ($uclang{'session_postfix'} =~ /\Q$text{'login_forgot2'}\E/) {
+		delete($uclang{'session_postfix'});
+		&write_file("$usermin::config{'usermin_dir'}/custom-lang", \%uclang);
+		}
+	}
 }
