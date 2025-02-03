@@ -37,8 +37,8 @@ if (!$ENV{"ANONYMOUS_USER"}) {
 	}
 else {
 	# Show recovery form
-	&popup_header($text{'index_title'});
-	print "<center><h1>",$text{'index_title'.$sfx},"</h1></center>\n";
+	&ui_print_header(undef, $text{'index_title'}, "", undef, 0, 1, 1);
+	print "<center>",&ui_subheading($text{'index_title'.$sfx}),"</center>";
 
 	print $text{'index_desc'.$sfx},"<p>\n";
 
@@ -62,5 +62,5 @@ else {
 	print &ui_table_end();
 	print &ui_form_end([ [ undef, $text{'index_submit'} ] ]);
 
-	&popup_footer();
+	&ui_print_footer();
 	}
