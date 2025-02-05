@@ -1,1 +1,1 @@
-desc_fr=R&#233;cup&#233;ration Mot de Passe Virtualmin
+desc_fr=Récupération Mot de Passe Virtualmin

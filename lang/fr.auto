@@ -1,0 +1,27 @@
+index_title4=Récupération de mot de passe Usermin
+index_desc4=Cette page vous permet de récupérer un mot de passe Usermin ou IMAP perdu ou oublié, en l'envoyant par e-mail à votre adresse de récupération.
+index_user4=Connexion Usermin ou IMAP
+index_mode=Méthode de récupération
+index_mode2=Envoyer le mot de passe d'origine par e-mail
+index_mode1=Envoyer un mot de passe temporaire aléatoire
+index_submit=Récupérer mot de passe
+
+email_edom4=Aucune boîte aux lettres correspondant au nom d'utilisateur ou à l'adresse e-mail n'a été trouvée
+email_edomrandom=L'envoi d'un mot de passe généré de manière aléatoire n'est pas possible si aucune adresse de contact externe n'est définie pour le domaine
+email_euserrandom=La récupération du mot de passe n'est possible que si une adresse de récupération a été définie pour votre compte
+email_subject3=Récupération de mot de passe Usermin
+email_msg3=Vous recevez cet e-mail en raison d'une demande de récupération de mot de passe pour la connexion Usermin $1 de $5, pour laquelle il s'agit de l'adresse de récupération. Si vous n'avez pas fait cette demande, veuillez ignorer cet e-mail. \n\nVos informations de connexion pour la connexion Usermin $1 ont été récupérées avec succès. \n\nAdresse e-mail: $2 \nMot de passe: $3 \n URL de l'utilisateur: $4 \n\nVous pouvez vous connecter immédiatement à l'aide de ces informations d'identification. \n
+email_done3=Le nom d'utilisateur et le mot de passe de votre compte Usermin $2 ont été envoyés à $1. Si vous rencontrez toujours des difficultés pour vous connecter à Usermin, veuillez contacter l'administrateur de votre domaine.
+email_eownerpass=Le mot de passe du propriétaire de votre système pour la connexion $1 ne peut pas être récupéré car il n'a pas été stocké par Cloudmin. Veuillez contacter votre administrateur système pour réinitialiser le mot de passe.
+email_euserpass=Votre mot de passe Usermin pour la connexion $1 ne peut pas être récupéré car il n'a pas été stocké par Virtualmin. Veuillez contacter votre administrateur système pour réinitialiser le mot de passe.
+email_return=Revenez au <a href='$1'>formulaire de connexion</a> pour utiliser votre nouveau mot de passe.
+email_eid=ID de message non valide  : $1
+email_esid=Impossible de générer un ID aléatoire!
+email_msglink=Vous recevez cet e-mail en raison d'une demande de récupération de mot de passe pour le serveur virtuel Virtualmin $2 de $3. Pour poursuivre la récupération, cliquez sur ce lien: \n $1 \n\nSi vous n’avez pas fait cette demande, veuillez ignorer cet e-mail.
+email_msglink2=Vous recevez cet e-mail en raison d'une demande de récupération de mot de passe pour le propriétaire du système Cloudmin $2 de $3. Pour poursuivre la récupération, cliquez sur ce lien: \n $1 \n\nSi vous n’avez pas fait cette demande, veuillez ignorer cet e-mail.
+email_msglink3=Vous recevez cet e-mail en raison d'une demande de récupération de mot de passe pour le compte Usermin $2 de $3. Pour poursuivre la récupération, cliquez sur ce lien: \n $1 \n\nSi vous n’avez pas fait cette demande, veuillez ignorer cet e-mail.
+email_donelink=Un e-mail a été envoyé à votre adresse de récupération $1 contenant un lien sur lequel vous devez cliquer pour réinitialiser votre mot de passe.
+email_linkfor=Lien pour $1 
+email_etime=L'e-mail de récupération a plus d'un jour!
+
+login_forgot2=Vous avez oublié votre mot de passe Usermin?

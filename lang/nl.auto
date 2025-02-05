@@ -1,0 +1,27 @@
+index_title4=Usermin wachtwoordherstel
+index_desc4=Op deze pagina kunt u een verloren of vergeten Usermin- of IMAP-wachtwoord herstellen door het per e-mail naar uw hersteladres te sturen.
+index_user4=Usermin of IMAP login
+index_mode=Herstelmethode
+index_mode2=E-mail origineel wachtwoord
+index_mode1=E-mail willekeurig tijdelijk wachtwoord
+index_submit=Wachtwoord herstellen
+
+email_edom4=Er is geen mailbox gevonden die overeenkomt met de gebruikersnaam of het e-mailadres
+email_edomrandom=Het e-mailen van een willekeurig gegenereerd wachtwoord is niet mogelijk als er geen extern contactadres is ingesteld voor het domein
+email_euserrandom=Wachtwoordherstel is niet mogelijk tenzij er een hersteladres is ingesteld voor uw account
+email_subject3=Usermin wachtwoordherstel
+email_msg3=U ontvangt deze e-mail vanwege een verzoek om wachtwoordherstel voor de Usermin-login $1 van $5, waarvoor dit het hersteladres is. Als u dit verzoek niet heeft gedaan, negeert u deze e-mail. \n\nUw aanmeldingsgegevens voor de gebruikersnaam $1 zijn succesvol hersteld. \n\nE-mailadres: $2 \nWachtwoord: $3 \nUsermin-URL: $4 \n\nU kunt onmiddellijk inloggen met deze gegevens. \n
+email_done3=De login en het wachtwoord voor uw Usermin-account $2 zijn verzonden naar $1. Als je nog steeds problemen hebt met inloggen op Usermin, neem dan contact op met de beheerder van je domein.
+email_eownerpass=Het wachtwoord van uw systeemeigenaar voor login $1 kan niet worden hersteld omdat het niet is opgeslagen door Cloudmin. Neem contact op met uw systeembeheerder om het wachtwoord opnieuw in te stellen.
+email_euserpass=Uw Usermin-wachtwoord voor login $1 kan niet worden hersteld omdat het niet is opgeslagen door Virtualmin. Neem contact op met uw systeembeheerder om het wachtwoord opnieuw in te stellen.
+email_return=Ga terug naar het <a href='$1'>aanmeldingsformulier</a> om uw nieuwe wachtwoord te gebruiken.
+email_eid=Ongeldige bericht-ID : $1
+email_esid=Kan geen willekeurige ID genereren!
+email_msglink=U ontvangt deze e-mail vanwege een verzoek om wachtwoordherstel voor de Virtualmin virtuele server $2 van $3. Klik op deze link om door te gaan met herstellen: \n $1 \n\nAls u dit verzoek niet heeft ingediend, negeert u deze e-mail.
+email_msglink2=U ontvangt deze e-mail vanwege een verzoek om wachtwoordherstel voor de Cloudmin-systeemeigenaar $2 van $3. Klik op deze link om door te gaan met herstellen: \n $1 \n\nAls u dit verzoek niet heeft ingediend, negeert u deze e-mail.
+email_msglink3=U ontvangt deze e-mail vanwege een verzoek om wachtwoordherstel voor het Usermin-account $2 van $3. Klik op deze link om door te gaan met herstellen: \n $1 \n\nAls u dit verzoek niet heeft ingediend, negeert u deze e-mail.
+email_donelink=Er is een e-mail verzonden naar uw hersteladres $1 met een link waarop moet worden geklikt om uw wachtwoord opnieuw in te stellen.
+email_linkfor=Link voor $1 
+email_etime=Herstel-e-mail is meer dan 1 dag oud!
+
+login_forgot2=Wachtwoord Usermin vergeten?
