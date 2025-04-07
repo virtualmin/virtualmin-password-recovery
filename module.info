@@ -1,5 +1,5 @@
 desc=Virtualmin Password Recovery
 depends=1.420
 category=system
-version=1.12
+version=1.2
 feedback=jcameron@webmin.com
